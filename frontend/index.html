@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Car Customizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>3D Car Customizer</h1>
+    </header>
+    <main>
+        <div id="viewer"></div>
+        <div id="controls">
+            <button onclick="changeColor('red')">Red</button>
+            <button onclick="changeColor('blue')">Blue</button>
+            <button onclick="addPart('spoiler')">Add Spoiler</button>
+        </div>
+    </main>
+    <script src="libs/three.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
