@@ -1,14 +1,22 @@
 <?php
-$userId = $_SERVER['REMOTE_ADDR'];
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $file = __DIR__ . '/db/creations.json';
 
-$db = new SQLite3('database/cars.db');
-$stmt = $db->prepare('SELECT config FROM cars WHERE user_id = :user_id');
-$stmt->bindValue(':user_id', $userId, SQLITE3_TEXT);
-$result = $stmt->execute();
+    if (!file_exists($file)) {
+        http_response_code(404);
+        echo json_encode(["message" => "No creations found"]);
+        exit;
+    }
 
-$configs = [];
-while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-    $configs[] = json_decode($row['config'], true);
+    $data = json_decode(file_get_contents($file), true);
+    $creation = $data[$id] ?? null;
+
+    if ($creation) {
+        echo json_encode($creation);
+    } else {
+        http_response_code(404);
+        echo json_encode(["message" => "Creation not found"]);
+    }
 }
-
-echo json_encode($configs);
+?>

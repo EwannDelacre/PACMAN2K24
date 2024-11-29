@@ -1,16 +1,21 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $data = json_decode(file_get_contents('php://input'), true);
-    $userId = $_SERVER['REMOTE_ADDR']; // Simple identification (à améliorer)
-    $carConfig = $data['config'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération des données envoyées depuis le frontend
+    $jsonData = file_get_contents('php://input');
+    $data = json_decode($jsonData, true);
 
-    $db = new SQLite3('database/cars.db');
-    $stmt = $db->prepare('INSERT INTO cars (user_id, config) VALUES (:user_id, :config)');
-    $stmt->bindValue(':user_id', $userId, SQLITE3_TEXT);
-    $stmt->bindValue(':config', json_encode($carConfig), SQLITE3_TEXT);
-    $stmt->execute();
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["message" => "Invalid data format"]);
+        exit;
+    }
 
-    echo json_encode(['status' => 'success']);
-} else {
-    http_response_code(405);
+    // Sauvegarde dans le fichier JSON
+    $file = __DIR__ . '/db/creations.json';
+    $currentData = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
+    $currentData[] = $data;
+
+    file_put_contents($file, json_encode($currentData, JSON_PRETTY_PRINT));
+    echo json_encode(["message" => "Creation saved successfully"]);
 }
+?>
