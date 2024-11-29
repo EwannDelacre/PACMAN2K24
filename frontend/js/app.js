@@ -1,43 +1,36 @@
-import { loadModel } from './utils.js';
-
+// Variables globales
 let scene, camera, renderer, carModel;
 
-// Initialisation de la scène 3D
-function initScene() {
-    // Crée la scène
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xeeeeee);
+// Initialisation de la scène
+export function initScene() {
+    // Création de la scène
+    scene = new window.THREE.Scene(); // Utilisation de THREE à partir de window
+    scene.background = new window.THREE.Color(0xeeeeee);
 
-    // Ajoute une caméra
-    camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-    );
+    // Création de la caméra
+    camera = new window.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(0, 2, 5);
 
-    // Crée le renderer
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    // Création du renderer
+    renderer = new window.THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    document.getElementById('scene-container').appendChild(renderer.domElement);
 
-    // Ajoute une lumière directionnelle
-    const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(5, 10, 7.5);
-    scene.add(light);
+    // Ajout de lumières
+    const directionalLight = new window.THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 10, 7.5);
+    scene.add(directionalLight);
 
-    // Ajoute une lumière ambiante
-    const ambientLight = new THREE.AmbientLight(0x404040);
+    const ambientLight = new window.THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
 
-    // Charge le modèle de base
+    // Chargement du modèle de base
     loadModel('./assets/models/classic.glb', (model) => {
         carModel = model;
         scene.add(carModel);
     });
 
-    // Lance l'animation
+    // Lancer l'animation
     animate();
 }
 
@@ -47,24 +40,25 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-// Fonction pour ajouter une pièce au modèle
-function addPart(modelPath) {
-    loadModel(modelPath, (part) => {
-        if (carModel) {
-            carModel.add(part);
+// Fonction pour charger un modèle
+function loadModel(path, callback) {
+    const loader = new window.THREE.GLTFLoader(); // Utilisation de GLTFLoader depuis window
+    loader.load(
+        path,
+        (gltf) => {
+            const model = gltf.scene;
+            callback(model);
+        },
+        undefined,
+        (error) => {
+            console.error('Erreur lors du chargement du modèle :', error);
         }
-    });
+    );
 }
 
-// Ajuste la taille de la scène au redimensionnement de la fenêtre
+// Ajustement de la taille au redimensionnement
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
-// Expose certaines fonctions globalement
-window.addPart = addPart;
-
-// Initialise la scène au chargement
-initScene();
