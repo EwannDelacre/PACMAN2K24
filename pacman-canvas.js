@@ -444,7 +444,7 @@ function geronimo() {
 				blinky.reset();
 				clyde.reset();
 			}
-			blinky.start(); // blinky is the first to leave ghostHouse
+			blinky.start();
 			inky.start();
 			pinky.start();
 			clyde.start();
@@ -470,7 +470,6 @@ function geronimo() {
 			return ((pixelPos % 30) / 30);
 		};
 
-		/* ------------ Start Pre-Build Walls  ------------ */
 		this.buildWalls = function () {
 			if (this.ghostMode === 0) game.wallColor = "Blue";
 			else game.wallColor = "Red";
@@ -482,73 +481,52 @@ function geronimo() {
 			context_walls.fillStyle = game.wallColor;
 			context_walls.strokeStyle = game.wallColor;
 
-			//horizontal outer
 			buildWall(context_walls, 0, 0, 18, 1);
 			buildWall(context_walls, 0, 12, 18, 1);
-
-			// vertical outer
 			buildWall(context_walls, 0, 0, 1, 6);
 			buildWall(context_walls, 0, 7, 1, 6);
 			buildWall(context_walls, 17, 0, 1, 6);
 			buildWall(context_walls, 17, 7, 1, 6);
-
-			// ghost base
 			buildWall(context_walls, 7, 4, 1, 1);
 			buildWall(context_walls, 6, 5, 1, 2);
 			buildWall(context_walls, 10, 4, 1, 1);
 			buildWall(context_walls, 11, 5, 1, 2);
 			buildWall(context_walls, 6, 6, 6, 1);
-
-			// ghost base door
 			context_walls.fillRect(8 * 2 * pacman.radius, pacman.radius / 2 + 4 * 2 * pacman.radius + 5, 4 * pacman.radius, 1);
-
-			// single blocks
 			buildWall(context_walls, 4, 0, 1, 2);
 			buildWall(context_walls, 13, 0, 1, 2);
-
 			buildWall(context_walls, 2, 2, 1, 2);
 			buildWall(context_walls, 6, 2, 2, 1);
 			buildWall(context_walls, 15, 2, 1, 2);
 			buildWall(context_walls, 10, 2, 2, 1);
-
 			buildWall(context_walls, 2, 3, 2, 1);
 			buildWall(context_walls, 14, 3, 2, 1);
 			buildWall(context_walls, 5, 3, 1, 1);
 			buildWall(context_walls, 12, 3, 1, 1);
 			buildWall(context_walls, 3, 3, 1, 3);
 			buildWall(context_walls, 14, 3, 1, 3);
-
 			buildWall(context_walls, 3, 4, 1, 1);
 			buildWall(context_walls, 14, 4, 1, 1);
-
 			buildWall(context_walls, 0, 5, 2, 1);
 			buildWall(context_walls, 3, 5, 2, 1);
 			buildWall(context_walls, 16, 5, 2, 1);
 			buildWall(context_walls, 13, 5, 2, 1);
-
 			buildWall(context_walls, 0, 7, 2, 2);
 			buildWall(context_walls, 16, 7, 2, 2);
 			buildWall(context_walls, 3, 7, 2, 2);
 			buildWall(context_walls, 13, 7, 2, 2);
-
 			buildWall(context_walls, 4, 8, 2, 2);
 			buildWall(context_walls, 12, 8, 2, 2);
 			buildWall(context_walls, 5, 8, 3, 1);
 			buildWall(context_walls, 10, 8, 3, 1);
-
 			buildWall(context_walls, 2, 10, 1, 1);
 			buildWall(context_walls, 15, 10, 1, 1);
 			buildWall(context_walls, 7, 10, 4, 1);
 			buildWall(context_walls, 4, 11, 2, 2);
 			buildWall(context_walls, 12, 11, 2, 2);
-			/* ------------ End Pre-Build Walls  ------------ */
 		};
-
 	}
-
 	game = new Game();
-
-
 
 	function Score() {
 		this.score = 0;
@@ -561,22 +539,8 @@ function geronimo() {
 		this.refresh = function (h) {
 			$(h).html("Score: " + this.score);
 		};
-
 	}
 
-
-
-	// used to play sounds during the game
-	var Sound = {};
-	Sound.play = function (sound) {
-		if (game.soundfx == 1) {
-			var audio = document.getElementById(sound);
-			(audio !== null) ? audio.play(): console.log(sound + " not found");
-		}
-	};
-
-
-	// Direction object in Constructor notation
 	function Direction(name, angle1, angle2, dirX, dirY) {
 		this.name = name;
 		this.angle1 = angle1;
@@ -589,18 +553,11 @@ function geronimo() {
 	}
 
 	// Direction Objects
-	var up = new Direction("up", 1.75, 1.25, 0, -1); // UP
-	var left = new Direction("left", 1.25, 0.75, -1, 0); // LEFT
-	var down = new Direction("down", 0.75, 0.25, 0, 1); // DOWN
-	var right = new Direction("right", 0.25, 1.75, 1, 0); // RIGHT
-	/*var directions = [{},{},{},{}];
-	directions[0] = up;
-	directions[1] = down;
-	directions[2] = right;
-	directions[3] = left;*/
+	var up = new Direction("up", 1.75, 1.25, 0, -1);
+	var left = new Direction("left", 1.25, 0.75, -1, 0);
+	var down = new Direction("down", 0.75, 0.25, 0, 1);
+	var right = new Direction("right", 0.25, 1.75, 1, 0);
 
-
-	// DirectionWatcher
 	function directionWatcher() {
 		this.dir = null;
 		this.set = function (dir) {
@@ -611,9 +568,6 @@ function geronimo() {
 		};
 	}
 
-	//var directionWatcher = new directionWatcher();
-
-	// Ghost object in Constructor notation
 	function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
 		this.name = name;
 		this.posX = gridPosX * 30;
@@ -644,15 +598,12 @@ function geronimo() {
 		this.dead = false;
 		this.dazzle = function () {
 			this.changeSpeed(game.ghostSpeedDazzled);
-			// ensure ghost doesnt leave grid
 			if (this.posX > 0) this.posX = this.posX - this.posX % this.speed;
 			if (this.posY > 0) this.posY = this.posY - this.posY % this.speed;
 			this.dazzled = true;
 		}
 		this.undazzle = function () {
-			// only change speed if ghost is not "dead"
 			if (!this.dead) this.changeSpeed(game.ghostSpeedNormal);
-			// ensure ghost doesnt leave grid
 			if (this.posX > 0) this.posX = this.posX - this.posX % this.speed;
 			if (this.posY > 0) this.posY = this.posY - this.posY % this.speed;
 			this.dazzled = false;
@@ -700,7 +651,6 @@ function geronimo() {
 			}
 		}
 		this.changeSpeed = function (s) {
-			// adjust gridPosition to new speed
 			this.posX = Math.round(this.posX / s) * s;
 			this.posY = Math.round(this.posY / s) * s;
 			this.speed = s;
@@ -711,15 +661,12 @@ function geronimo() {
 			this.checkDirectionChange();
 			this.checkCollision();
 
-			// leave Ghost House
 			if (this.ghostHouse == true) {
 
-				// Clyde does not start chasing before 2/3 of all pills are eaten and if level is < 4
 				if (this.name == GHOSTS.CLYDE) {
 					if ((game.level < 4) || ((game.pillCount > 104 / 3))) this.stop = true;
 					else this.stop = false;
 				}
-				// Inky starts after 30 pills and only from the third level on
 				if (this.name == GHOSTS.INKY) {
 					if ((game.level < 3) || ((game.pillCount > 104 - 30))) this.stop = true;
 					else this.stop = false;
@@ -737,11 +684,9 @@ function geronimo() {
 			}
 
 			if (!this.stop) {
-				// Move
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
-				// Check if out of canvas
 				if (this.posX >= game.width - this.radius) this.posX = this.speed - this.radius;
 				if (this.posX <= 0 - this.radius) this.posX = game.width - this.speed - this.radius;
 				if (this.posY >= game.height - this.radius) this.posY = this.speed - this.radius;
@@ -751,11 +696,9 @@ function geronimo() {
 
 		this.checkCollision = function () {
 
-			/* Check Back to Home */
 			if (this.dead && (this.getGridPosX() == this.startPosX / 30) && (this.getGridPosY() == this.startPosY / 30)) this.reset();
 			else {
 
-				/* Check Ghost / Pacman Collision			*/
 				if ((between(pacman.getCenterX(), this.getCenterX() - 10, this.getCenterX() + 10)) &&
 					(between(pacman.getCenterY(), this.getCenterY() - 10, this.getCenterY() + 10))) {
 					if ((!this.dazzled) && (!this.dead)) {
@@ -767,9 +710,7 @@ function geronimo() {
 			}
 		}
 
-		/* Pathfinding */
 		this.getNextDirection = function () {
-			// get next field
 			var pX = this.getGridPosX();
 			var pY = this.getGridPosY();
 			game.getMapContent(pX, pY);
@@ -1041,12 +982,10 @@ function geronimo() {
 					) {
 						var s;
 						if (field === "powerpill") {
-							Sound.play("powerpill");
 							s = POWERPILL_POINTS;
 							this.enableBeastMode();
 							game.startGhostFrightened();
 						} else {
-							Sound.play("waka");
 							s = PILL_POINTS;
 							game.pillCount--;
 						}
