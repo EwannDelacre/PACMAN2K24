@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+<!-- [Le reste du head reste identique] -->
 <head>
     <meta charset="utf-8" />
     <title>Pacman en HTML5 Canvas</title>
@@ -14,8 +15,7 @@
 <body>
 <div class="container">
     <div class="main">
-
-        <!-- Message affiché si Javascript est désactivé -->
+        <!-- [Sections précédentes identiques jusqu'à la section Instructions] -->
         <noscript>
             <h2>Activez Javascript !</h2>
             <p>Cette application nécessite Javascript pour fonctionner. Veuillez vérifier que Javascript est activé dans votre navigateur.</p>
@@ -84,16 +84,15 @@
                 <h1>Instructions</h1>
                 <div class="nomobile">
                     <h2>Commandes</h2>
-                    <p>Utilisez les touches fléchées ou [W,A,S,D] pour déplacer Pacman.</p>
-                    <p>Appuyez sur [ESPACE] pour mettre en pause ou reprendre le jeu ou cliquez simplement dans la zone de jeu.</p>
-                </div>
-                <div class="mobile">
-                    <h2>Commandes</h2>
-                    <p>Utilisez des gestes de balayage pour déplacer Pacman.</p>
-                    <p>Appuyez dans la zone de jeu pour mettre en pause ou reprendre le jeu.</p>
+                    <ol>
+                        <li>Utilisez les touches fléchées ou [W,A,S,D] pour déplacer Pacman.</li>
+                        <li>Appuyez sur [ESPACE] pour mettre en pause ou reprendre le jeu ou cliquez simplement dans la zone de jeu.</li>
+                        <li>Appuyez sur [N] pour revenir au niveau 1.</li>
+                        <li>Appuyez sur [M] pour activer / désactiver le son.</li>
+                    </ol>
                 </div>
                 <h2>Les fantômes</h2>
-                <p>Les fantômes chassent Pacman. S'ils l'attrapent, il perd une vie.</p>
+                <p>Les fantômes chassent <a href="https://fr.wikipedia.org/wiki/Pac-Man">Pacman</a> <a href="https://fr.wikipedia.org/wiki/Pac-Man"><img src="img/Icon-32x32.png" alt="Pacman" style="height: 20px; vertical-align: middle;"></a>. S'ils l'attrapent, il perd une vie.</p>
                 <p>Chaque fantôme a une stratégie différente.</p>
             </div>
         </div>
@@ -104,7 +103,14 @@
             <div>
                 <h1>Informations</h1>
                 <p>Version actuelle : 1.0.2 13h43 11/12/2024</p>
-                <p>Jeu écrit en HTML5, CSS3, et JavaScript.</p>
+                <p>Jeu écrit en :</p>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>PHP</li>
+                    <li>JavaScript</li>
+                </ul>
+                <p>Par Ewann Delacre aka <a href="https://fr.wikipedia.org/wiki/%C3%82ne">31</a>.</p>
             </div>
         </div>
     </div>

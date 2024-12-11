@@ -1,6 +1,6 @@
 /*-------------------------------------------------------------------
 
-	Made by 31.
+	Made by Ewann Delacre aka 31.
 
 -------------------------------------------------------------------*/
 
@@ -153,7 +153,7 @@ function geronimo() {
 		this.monsters;
 		this.level = 1;
 		this.refreshLevel = function (h) {
-			$(h).html("Lvl: " + this.level);
+			$(h).html("Niv: " + this.level);
 		};
 		this.canvas = $("#myCanvas").get(0);
 		this.wallColor = "Blue";
@@ -245,7 +245,7 @@ function geronimo() {
 		};
 
 		this.newGame = function () {
-			var r = confirm("Are you sure you want to restart?");
+			var r = confirm("Vous allez retouner au niveau 1, êtes-vous sur ?");
 			if (r) {
 				console.log("new Game");
 				this.init(0);
@@ -261,8 +261,8 @@ function geronimo() {
 				game.showHighscoreForm();
 			} else {
 				this.level++;
-				console.log("Level " + game.level);
-				game.pauseAndShowMessage("Level " + game.level, this.getLevelTitle() + "<br/>(Click to continue!)");
+				console.log("Niveau " + game.level);
+				game.pauseAndShowMessage("Level " + game.level, this.getLevelTitle() + "<br/>(Cliquez pour continuer!)");
 				game.refreshLevel(".level");
 				this.init(1);
 			}
@@ -273,7 +273,7 @@ function geronimo() {
 			for (var i = 0; i < count; i++) {
 				html += " <img src='img/heart.png'>";
 			}
-			$(".lives").html("Lives: " + html);
+			$(".lives").html("Vies: " + html);
 
 		};
 
@@ -285,19 +285,19 @@ function geronimo() {
 		this.getLevelTitle = function () {
 			switch (this.level) {
 				case 2:
-					return '"The chase begins"';
+					return '"Les fantômes vous poursuivent"';
 					// Switch chasse
 				case 3:
-					return '"Inky\s awakening"';
+					return '"Inky arrive"';
 					// Inky bouge
 				case 4:
-					return '"Clyde\s awakening"';
+					return '"Clyde arriveg"';
 					// Clyde bouge
 				case 5:
-					return '"need for speed"';
+					return '"Fantômes rapides"';
 					// Speed-up des fantomes
 				default:
-					return '"nothing new"';
+					return '"Rien de nouveau"';
 			}
 		}
 
@@ -355,7 +355,7 @@ function geronimo() {
 
 		this.forcePause = function () {
 			this.timer.stop();
-			this.pauseAndShowMessage("Pause", "Click to Resume");
+			this.pauseAndShowMessage("Pause", "Cliquez pour revenir au jeu");
 		}
 
 		this.forceResume = function () {
@@ -374,7 +374,7 @@ function geronimo() {
 			} else if (this.pause) {
 				this.forceResume();
 			} else {
-				this.pauseAndShowMessage("Pause", "Click to Resume");
+				this.pauseAndShowMessage("Pause", "Cliquez pour revenir au jeu");
 			}
 		};
 
@@ -1026,10 +1026,11 @@ function geronimo() {
 				this.direction = dir;
 			}
 		}
+
 		this.enableBeastMode = function () {
 			this.beastMode = true;
 			this.beastModeTimer = 240;
-			console.debug("Beast Mode activated!");
+			console.debug("boule mangée");
 			inky.dazzle();
 			pinky.dazzle();
 			blinky.dazzle();
@@ -1037,12 +1038,13 @@ function geronimo() {
 		};
 		this.disableBeastMode = function () {
 			this.beastMode = false;
-			console.debug("Beast Mode is over!");
+			console.debug("fin mode boule mangée");
 			inky.undazzle();
 			pinky.undazzle();
 			blinky.undazzle();
 			clyde.undazzle();
 		};
+
 		this.move = function () {
 
 			if (!this.frozen) {
@@ -1136,22 +1138,17 @@ function geronimo() {
 	game.buildWalls();
 
 
-	// Check if a new cache is available on page load.
 	function checkAppCache() {
 		console.log('check AppCache');
 		window.applicationCache.addEventListener('updateready', function (e) {
 			console.log("AppCache: updateready");
 			if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
 
-				// Browser downloaded a new app cache.
-				// Swap it in and reload the page to get the new hotness.
 				window.applicationCache.swapCache();
 				if (confirm('A new version of this site is available. Load it?')) {
 					window.location.reload();
 				}
 
-			} else {
-				// Manifest didn't change. Nothing new to server.
 			}
 		}, false);
 
@@ -1160,9 +1157,6 @@ function geronimo() {
 		}, false);
 
 	}
-
-
-	// Action starts here:
 
 	function hideAdressbar() {
 		console.log("hide adressbar");
@@ -1188,36 +1182,16 @@ function geronimo() {
 			}
 		});
 
-		// Hide address bar
 		hideAdressbar();
 
 		if (window.applicationCache != null) checkAppCache();
 
-		/* -------------------- EVENT LISTENERS -------------------------- */
-
-		// Listen for resize changes
-		/*window.addEventListener("resize", function() {
-			// Get screen size (inner/outerWidth, inner/outerHeight)
-			// deactivated because of problems
-			if ((window.outerHeight < window.outerWidth) && (window.outerHeight < 720)) {
-			game.pauseAndShowMessage("Rotate Device","Your screen is too small to play in landscape view.");
-			console.log("rotate your device to portrait!");
-			}
-		}, false);*/
-
-
-		// --------------- Controls
-
-
-		// Keyboard
 		window.addEventListener('keydown', doKeyDown, true);
 
-		// pause / resume game on canvas click
 		$('#canvas-container').click(function () {
 			if (!(game.gameOver === true)) game.pauseResume();
 		});
 
-		// highscore form submit event listener
 		$('body').on('click', '#score-submit', function () {
 			console.log("submit highscore pressed");
 			if ($('#playerName').val() === "" || $('#playerName').val() === undefined) {
@@ -1233,7 +1207,6 @@ function geronimo() {
 			getHighscore();
 		});
 
-		// Hammerjs Touch Events
 		Hammer('.container').on("swiperight", function (event) {
 			if ($('#game-content').is(":visible")) {
 				event.gesture.preventDefault();
@@ -1259,7 +1232,6 @@ function geronimo() {
 			}
 		});
 
-		// Mobile Control Buttons
 		$(document).on('touchend mousedown', '#up', function (event) {
 			event.preventDefault();
 			pacman.directionWatcher.set(up);
@@ -1277,7 +1249,6 @@ function geronimo() {
 			pacman.directionWatcher.set(right);
 		});
 
-		// Menu
 		$(document).on('click', '.button#newGame', function (event) {
 			game.newGame();
 		});
@@ -1291,31 +1262,21 @@ function geronimo() {
 		$(document).on('click', '.button#info', function (event) {
 			game.showContent('info-content');
 		});
-		// back button
 		$(document).on('click', '.button#back', function (event) {
 			game.showContent('game-content');
 		});
-		// toggleSound
 		$(document).on('click', '.controlSound', function (event) {
 			game.toggleSound();
 		});
-		// get latest
 		$(document).on('click', '#updateCode', function (event) {
 			console.log('check for new version');
 			event.preventDefault();
 			window.applicationCache.update();
 		});
 
-		// checkAppCache();
 
 		canvas = $("#myCanvas").get(0);
 		context = canvas.getContext("2d");
-
-		/* --------------- GAME INITIALISATION ------------------------------------
-
-			TODO: put this into Game object and change code to accept different setups / levels
-
-		-------------------------------------------------------------------------- */
 
 		game.init(0);
 
@@ -1323,10 +1284,8 @@ function geronimo() {
 	});
 
 	function renderContent() {
-		// Refresh Score
 		game.score.refresh(".score");
 
-		// Pills
 		context.beginPath();
 		context.fillStyle = "White";
 		context.strokeStyle = "White";
@@ -1350,20 +1309,15 @@ function geronimo() {
 		}
 
 		context.fill();
-
-		// Walls
 		context.drawImage(canvas_walls, 0, 0);
 
 
 		if (game.started) {
-			// Ghosts
 			pinky.draw(context);
 			blinky.draw(context);
 			inky.draw(context);
 			clyde.draw(context);
 
-
-			// Pac Man
 			context.beginPath();
 			context.fillStyle = "Yellow";
 			context.strokeStyle = "Yellow";
@@ -1375,50 +1329,16 @@ function geronimo() {
 
 	}
 
-	// TODO: only for debugging
-	function renderGrid(gridPixelSize, color) {
-		context.save();
-		context.lineWidth = 0.5;
-		context.strokeStyle = color;
-
-		// horizontal grid lines
-		for (var i = 0; i <= canvas.height; i = i + gridPixelSize) {
-			context.beginPath();
-			context.moveTo(0, i);
-			context.lineTo(canvas.width, i);
-			context.closePath();
-			context.stroke();
-		}
-
-		// vertical grid lines
-		for (var i = 0; i <= canvas.width; i = i + gridPixelSize) {
-			context.beginPath();
-			context.moveTo(i, 0);
-			context.lineTo(i, canvas.height);
-			context.closePath();
-			context.stroke();
-		}
-
-		context.restore();
-	}
-
-
 	function animationLoop() {
-
-		// if (gameOver) return;
-
 		canvas.width = canvas.width;
-		// enable next line to show grid
-		// renderGrid(pacman.radius, "red");
 		renderContent();
 
 		if (game.dieAnimation == 1) pacman.dieAnimation();
 		if (game.pause !== true) {
-			// Make changes before next loop
 			pacman.move();
 			pacman.eat();
 			pacman.checkDirectionChange();
-			pacman.checkCollisions(); // has to be the LAST method called on pacman
+			pacman.checkCollisions();
 
 			blinky.move();
 			inky.move();
@@ -1426,15 +1346,9 @@ function geronimo() {
 			clyde.move();
 
 			game.checkGhostMode();
-
-
-			// All dots collected?
 			game.checkForLevelUp();
 		}
-
-		//requestAnimationFrame(animationLoop);
 		setTimeout(animationLoop, game.refreshRate);
-
 	}
 
 
@@ -1442,43 +1356,36 @@ function geronimo() {
 	function doKeyDown(evt) {
 
 		switch (evt.keyCode) {
-			case 38: // UP Arrow Key pressed
+			case 38: // haut
 				evt.preventDefault();
-			case 87: // W pressed
+			case 87: // w
 				pacman.directionWatcher.set(up);
 				break;
-			case 40: // DOWN Arrow Key pressed
+			case 40: // bas
 				evt.preventDefault();
-			case 83: // S pressed
+			case 83: // s
 				pacman.directionWatcher.set(down);
 				break;
-			case 37: // LEFT Arrow Key pressed
+			case 37: // gauche
 				evt.preventDefault();
-			case 65: // A pressed
+			case 65: // a
 				pacman.directionWatcher.set(left);
 				break;
-			case 39: // RIGHT Arrow Key pressed
+			case 39: // droite
 				evt.preventDefault();
-			case 68: // D pressed
+			case 68: // d
 				pacman.directionWatcher.set(right);
 				break;
-			case 78: // N pressed
+			case 78: // n
 				if (!$('#playerName').is(':focus')) {
 					game.pause = 1;
 					game.newGame();
 				}
 				break;
-			case 77: // M pressed
+			case 77: // m
 				game.toggleSound();
 				break;
-			case 8: // Backspace pressed -> show Game Content
-			case 27: // ESC pressed -> show Game Content
-				if (!$('#playerName').is(':focus')) {
-					evt.preventDefault();
-					game.showContent('game-content');
-				}
-				break;
-			case 32: // SPACE pressed -> pause Game
+			case 32: // espace
 				evt.preventDefault();
 				if (!(game.gameOver == true) &&
 					$('#game-content').is(':visible')
