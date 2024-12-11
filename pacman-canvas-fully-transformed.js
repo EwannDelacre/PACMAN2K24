@@ -1,3 +1,231 @@
+// --- INITIALISATIONS ---
+const GHOSTS = {
+    INKY: 'fantomeBleu',
+    BLINKY: 'fantomeRouge',
+    PINKY: 'fantomeRose',
+    CLYDE: 'fantomeOrange'
+};
+
+const FINAL_LEVEL = 10;
+const PILL_POINTS = 10;
+const POWERPILL_POINTS = 50;
+const GHOST_POINTS = 100;
+const HIGHSCORE_ENABLED = true;
+
+	var toileDeJeu;
+	var contexteDessin;
+	var jeuPrincipal;
+	var canvas_walls, context_walls;
+	var fantomeBleu, fantomeRouge, fantomeOrange, fantomeRose;
+	var configCarte = "backdata/carte.json";
+	var getHighscore = () => {
+	var ajax_get = () => {
+		var date = new Date().getTime();
+				for (var i = 0; i < msg.length; i++) {
+	var ajax_add = (n, s, l) => {
+		var name = $("input[type=text]").val();
+		var originalConsoleLog = null;
+		var originalConsoleDebug = null;
+		var logger = {};
+			var maxX = jeuPrincipal.width / 30 - 1;
+			var maxY = jeuPrincipal.height / 30 - 1;
+			var r = confirm("Vous allez retouner au niveau 1, êtes-vous sur ?");
+			var html = "";
+			for (var i = 0; i < count; i++) {
+			const maxLevelPointsPills = 104 * PILL_POINTS;
+			const maxLevelPointsPowerpills = 4 * POWERPILL_POINTS;
+			const maxLevelPointsGhosts = 4 * 4 * GHOST_POINTS;
+			const maxLevelPoints = maxLevelPointsPills + maxLevelPointsPowerpills + maxLevelPointsGhosts;
+			const scoreIsValid = this.score.score / this.level <= maxLevelPoints;
+			const scoreIsValidCalculation = this.score.score / this.level <= maxLevelPoints;
+			const scoreIsValidValidation = this.validateScoreWithLevel();
+
+			var temp = 0;
+	var up = new Direction("up", 1.75, 1.25, 0, -1);
+	var left = new Direction("left", 1.25, 0.75, -1, 0);
+	var down = new Direction("down", 0.75, 0.25, 0, 1);
+	var right = new Direction("right", 0.25, 1.75, 1, 0);
+			var pX = this.getGridPosX();
+			var pY = this.getGridPosY();
+			var u, d, r, l;
+				var tX = this.startPosX / 30;
+				var tY = this.startPosY / 30;
+				var tX = this.gridBaseX;
+				var tY = this.gridBaseY;
+						var pdir = personnageCentral.direction;
+						var pdirX = pdir.dirX == 0 ? -pdir.dirY : pdir.dirX;
+						var pdirY = pdir.dirY == 0 ? -pdir.dirX : pdir.dirY;
+						var tX = (personnageCentral.getGridPosX() + pdirX * 4) % (jeuPrincipal.width / personnageCentral.radius + 1);
+						var tY = (personnageCentral.getGridPosY() + pdirY * 4) % (jeuPrincipal.height / personnageCentral.radius + 1);
+						var tX = personnageCentral.getGridPosX();
+						var tY = personnageCentral.getGridPosY();
+						var tX = personnageCentral.getGridPosX() + 2 * personnageCentral.direction.dirX;
+						var tY = personnageCentral.getGridPosY() + 2 * personnageCentral.direction.dirY;
+						var vX = tX - fantomeRouge.getGridPosX();
+						var vY = tY - fantomeRouge.getGridPosY();
+						var tX = personnageCentral.getGridPosX();
+						var tY = personnageCentral.getGridPosY();
+						var dist = Math.sqrt(Math.pow((pX - tX), 2) + Math.pow((pY - tY), 2));
+			var oppDir = this.getOppositeDirection();
+			var dirs = [{}, {}, {}, {}];
+			var dirs2 = dirs.sort(compare);
+			var r = this.dir;
+			var j;
+				for (var i = dirs2.length - 1; i >= 0; i--) {
+				for (var i = dirs2.length - 1; i >= 0; i--) {
+			var dir = Math.floor((Math.random() * 10) + 1) % 5;
+				var gridX = this.getGridPosX();
+				var gridY = this.getGridPosY();
+				var gridAheadX = gridX;
+				var gridAheadY = gridY;
+				var field = jeuPrincipal.getMapContent(gridX, gridY);
+				var fieldAhead = jeuPrincipal.getMapContent(gridAheadX, gridAheadY);
+						var s;
+						var x = this.getGridPosX() + this.directionWatcher.get().dirX;
+						var y = this.getGridPosY() + this.directionWatcher.get().dirY;
+						var nextTile = jeuPrincipal.map.posY[y].posX[x].type;
+					var limitMax1 = this.direction.angle1;
+					var limitMax2 = this.direction.angle2;
+					var limitMin1 = this.direction.angle1 - 0.21;
+					var limitMin2 = this.direction.angle2 + 0.21;
+	var personnageCentral = new personnageCentral();
+		var dotPosY;
+
+// --- FONCTIONS ---
+function geronimo() {
+			success: function (msg) {
+			success: function (data) {
+			error: function (errorThrown) {
+	function addHighscore() {
+	function buildWall(contexteDessin, gridX, gridY, width, height) {
+	function between(x, min, max) {
+	var logger = function () {
+		logger.enableLogger = function enableLogger() {
+		logger.disableLogger = function disableLogger() {
+			window['console']['log'] = function () {};
+			window['console']['debug'] = function () {};
+	function Timer() {
+		this.start = function () {
+		this.stop = function () {
+		this.reset = function () {
+		this.get_time_diff = function () {
+	function Game() {
+		this.refreshLevel = function (h) {
+		this.startGhostFrightened = function () {
+		this.endGhostFrightened = function () {
+		this.checkGhostMode = function () {
+		this.getMapContent = function (x, y) {
+		this.setMapContent = function (x, y, val) {
+		this.toggleSound = function () {
+		this.reset = function () {
+		this.newGame = function () {
+		this.nextLevel = function () {
+		this.drawHearts = function (count) {
+		this.showContent = function (id) {
+		this.getLevelTitle = function () {
+		this.showMessage = function (title, text) {
+		this.pauseAndShowMessage = function (title, text) {
+		this.closeMessage = function () {
+		this.validateScoreWithLevel = function () {
+		this.showHighscoreForm = function () {
+		this.forceStartAnimationLoop = function () {
+		this.forcePause = function () {
+		this.forceResume = function () {
+		this.pauseResume = function () {
+					beforeSend: function (xhr) {
+			$.each(this.map.posY, function (i, item) {
+				$.each(this.posX, function () {
+		this.checkForLevelUp = function () {
+		this.endGame = function (allLevelsCompleted = false) {
+		this.toPixelPos = function (gridPos) {
+		this.toGridPos = function (pixelPos) {
+		this.buildWalls = function () {
+	function Score() {
+		this.set = function (i) {
+		this.add = function (i) {
+		this.refresh = function (h) {
+	function Direction(name, angle1, angle2, dirX, dirY) {
+		this.equals = function (dir) {
+	function directionWatcher() {
+		this.set = function (dir) {
+		this.get = function () {
+	function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
+		this.dazzle = function () {
+		this.undazzle = function () {
+		this.draw = function (contexteDessin) {
+		this.getCenterX = function () {
+		this.getCenterY = function () {
+		this.reset = function () {
+		this.die = function () {
+		this.changeSpeed = function (s) {
+		this.move = function () {
+		this.checkCollision = function () {
+		this.getNextDirection = function () {
+			function compare(a, b) {
+		this.setRandomDirection = function () {
+		this.reverseDirection = function () {
+	function EntiteJeu() {
+		this.getNextDirection = function () {
+		this.checkDirectionChange = function () {
+		this.inGrid = function () {
+		this.getOppositeDirection = function () {
+		this.move = function () {
+		this.stop = function () {
+		this.start = function () {
+		this.getGridPosX = function () {
+		this.getGridPosY = function () {
+		this.setDirection = function (dir) {
+		this.setPosition = function (x, y) {
+	function personnageCentral() {
+		this.freeze = function () {
+		this.unfreeze = function () {
+		this.getCenterX = function () {
+		this.getCenterY = function () {
+		this.checkCollisions = function () {
+		this.checkDirectionChange = function () {
+		this.setDirection = function (dir) {
+		this.enableBeastMode = function () {
+		this.disableBeastMode = function () {
+		this.move = function () {
+		this.eat = function () {
+		this.stop = function () {
+		this.reset = function () {
+		this.dieAnimation = function () {
+		this.die = function () {
+		this.dieFinal = function () {
+		this.getGridPosX = function () {
+		this.getGridPosY = function () {
+	function checkAppCache() {
+		window.applicationCache.addEventListener('updateready', function (e) {
+		window.applicationCache.addEventListener('cached', function (e) {
+	function hideAdressbar() {
+	$(document).ready(function () {
+			beforeSend: function (xhr) {
+		$('#toileDeJeu-container').click(function () {
+		$('body').on('click', '#score-submit', function () {
+		$('body').on('click', '#show-highscore', function () {
+		Hammer('.container').on("swiperight", function (event) {
+		Hammer('.container').on("swipeleft", function (event) {
+		Hammer('.container').on("swipeup", function (event) {
+		Hammer('.container').on("swipedown", function (event) {
+		$(document).on('touchend mousedown', '#up', function (event) {
+		$(document).on('touchend mousedown', '#down', function (event) {
+		$(document).on('touchend mousedown', '#left', function (event) {
+		$(document).on('touchend mousedown', '#right', function (event) {
+		$(document).on('click', '.button#newGame', function (event) {
+		$(document).on('click', '.button#highscore', function (event) {
+		$(document).on('click', '.button#instructions', function (event) {
+		$(document).on('click', '.button#info', function (event) {
+		$(document).on('click', '.button#back', function (event) {
+		$(document).on('click', '.controlSound', function (event) {
+		$(document).on('click', '#updateCode', function (event) {
+	function renderContent() {
+	function animationLoop() {
+	function doKeyDown(evt) {
+
+// --- EVENEMENTS ---
+
+// --- BOUCLEPRINCIPALE ---
 /*-------------------------------------------------------------------
 
 	Made by Ewann Delacre aka 31.
@@ -6,33 +234,17 @@
 
 "use strict";
 
-const GHOSTS = {
-	INKY: 'inky',
-	BLINKY: 'blinky',
-	PINKY: 'pinky',
-	CLYDE: 'clyde'
+	INKY: 'fantomeBleu',
+	BLINKY: 'fantomeRouge',
+	PINKY: 'fantomeRose',
+	CLYDE: 'fantomeOrange'
 }
 
-const FINAL_LEVEL = 10;
-const PILL_POINTS = 10;
-const POWERPILL_POINTS = 50;
-const GHOST_POINTS = 100;
-const HIGHSCORE_ENABLED = true;
 
 
-function geronimo() {
-	var canvas;
-	var context;
-	var game;
-	var canvas_walls, context_walls;
-	var inky, blinky, clyde, pinky;
-	var mapConfig = "backdata/carte.json";
 
-	var getHighscore = () => {
 		setTimeout(ajax_get, 30);
 	}
-	var ajax_get = () => {
-		var date = new Date().getTime();
 		$.ajax({
 			datatype: "json",
 			type: "GET",
@@ -41,15 +253,12 @@ function geronimo() {
 				timestamp: date,
 				action: "get"
 			},
-			success: function (msg) {
 				$("#highscore-list").text("");
-				for (var i = 0; i < msg.length; i++) {
 					$("#highscore-list").append("<li>" + msg[i]['name'] + "<span id='score'>" + msg[i]['score'] + "</span></li>");
 				}
 			}
 		});
 	}
-	var ajax_add = (n, s, l) => {
 		$.ajax({
 			type: 'POST',
 			url: 'backdata/gestion.php',
@@ -60,39 +269,28 @@ function geronimo() {
 				level: l
 			},
 			dataType: 'json',
-			success: function (data) {
 				console.log('Highscore ajouté: ' + data);
 				$('#highscore-form').html('<span class="button" id="show-highscore">Voir Highscore List</span>');
 			},
-			error: function (errorThrown) {
 				console.log(errorThrown);
 			}
 		});
 	}
 
-	function addHighscore() {
-		var name = $("input[type=text]").val();
 		$("#highscore-form").html("Saving highscore...");
-		ajax_add(name, game.score.score, game.level);
+		ajax_add(name, jeuPrincipal.score.score, jeuPrincipal.level);
 	}
 
-	function buildWall(context, gridX, gridY, width, height) {
 		console.log("BuildWall");
 		width = width * 2 - 1;
 		height = height * 2 - 1;
-		context.fillRect(pacman.radius / 2 + gridX * 2 * pacman.radius, pacman.radius / 2 + gridY * 2 * pacman.radius, width * pacman.radius, height * pacman.radius);
+		contexteDessin.fillRect(personnageCentral.radius / 2 + gridX * 2 * personnageCentral.radius, personnageCentral.radius / 2 + gridY * 2 * personnageCentral.radius, width * personnageCentral.radius, height * personnageCentral.radius);
 	}
 
-	function between(x, min, max) {
 		return x >= min && x <= max;
 	}
 
-	var logger = function () {
-		var originalConsoleLog = null;
-		var originalConsoleDebug = null;
-		var logger = {};
 
-		logger.enableLogger = function enableLogger() {
 			if (originalConsoleLog === null)
 				return;
 
@@ -107,41 +305,32 @@ function geronimo() {
 
 		};
 
-		logger.disableLogger = function disableLogger() {
 			console.log('console.log disabled');
 			originalConsoleLog = console.log;
-			window['console']['log'] = function () {};
 			originalConsoleDebug = console.debug;
-			window['console']['debug'] = function () {};
 		};
 
 		return logger;
 	}();
 
-	function Timer() {
 		this.time_diff = 0;
 		this.time_start = 0;
 		this.time_stop = 0;
-		this.start = function () {
 			this.time_start = new Date().getTime();
 		}
-		this.stop = function () {
 			this.time_stop = new Date().getTime();
 			this.time_diff += this.time_stop - this.time_start;
 			this.time_stop = 0;
 			this.time_start = 0;
 		}
-		this.reset = function () {
 			this.time_diff = 0;
 			this.time_start = 0;
 			this.time_stop = 0;
 		}
-		this.get_time_diff = function () {
 			return this.time_diff;
 		}
 	}
 
-	function Game() {
 		this.timer = new Timer(); // TODO
 		this.refreshRate = 33;
 		this.pause = true;
@@ -152,13 +341,12 @@ function geronimo() {
 		this.pillCount;
 		this.monsters;
 		this.level = 1;
-		this.refreshLevel = function (h) {
 			$(h).html("Niv: " + this.level);
 		};
-		this.canvas = $("#myCanvas").get(0);
+		this.toileDeJeu = $("#myCanvas").get(0);
 		this.wallColor = "Blue";
-		this.width = this.canvas.width;
-		this.height = this.canvas.height;
+		this.width = this.toileDeJeu.width;
+		this.height = this.toileDeJeu.height;
 		this.pillSize = 3;
 		this.powerpillSizeMin = 2;
 		this.powerpillSizeMax = 6;
@@ -171,25 +359,22 @@ function geronimo() {
 		this.ghostSpeedNormal = (this.level > 4 ? 3 : 2); // vitesse fantome par defaut
 		this.ghostSpeedDazzled = 2; // vitesse fantome foncde par defaut
 
-		this.startGhostFrightened = function () {
 			console.log("ghost frigthened");
 			this.ghostFrightened = true;
 			this.ghostFrightenedTimer = 240;
-			inky.dazzle();
-			pinky.dazzle();
-			blinky.dazzle();
-			clyde.dazzle();
+			fantomeBleu.dazzle();
+			fantomeRose.dazzle();
+			fantomeRouge.dazzle();
+			fantomeOrange.dazzle();
 		};
 
-		this.endGhostFrightened = function () {
 			this.ghostFrightened = false;
-			inky.undazzle();
-			pinky.undazzle();
-			blinky.undazzle();
-			clyde.undazzle();
+			fantomeBleu.undazzle();
+			fantomeRose.undazzle();
+			fantomeRouge.undazzle();
+			fantomeOrange.undazzle();
 		};
 
-		this.checkGhostMode = function () {
 			if (this.ghostFrightened) {
 
 				this.ghostFrightenedTimer--;
@@ -199,23 +384,20 @@ function geronimo() {
 				}
 			}
 			this.ghostModeTimer--;
-			if (this.ghostModeTimer === 0 && game.level > 1) {
+			if (this.ghostModeTimer === 0 && jeuPrincipal.level > 1) {
 				this.ghostMode ^= 1;
 				this.ghostModeTimer = 200 + this.ghostMode * 450;
 				console.log("ghostMode=" + this.ghostMode);
 
-				game.buildWalls();
+				jeuPrincipal.buildWalls();
 
-				inky.reverseDirection();
-				pinky.reverseDirection();
-				clyde.reverseDirection();
-				blinky.reverseDirection();
+				fantomeBleu.reverseDirection();
+				fantomeRose.reverseDirection();
+				fantomeOrange.reverseDirection();
+				fantomeRouge.reverseDirection();
 			}
 		};
 
-		this.getMapContent = function (x, y) {
-			var maxX = game.width / 30 - 1;
-			var maxY = game.height / 30 - 1;
 			if (x < 0) x = maxX + x;
 			if (x > maxX) x = x - maxX;
 			if (y < 0) y = maxY + y;
@@ -223,29 +405,24 @@ function geronimo() {
 			return this.map.posY[y].posX[x].type;
 		};
 
-		this.setMapContent = function (x, y, val) {
 			this.map.posY[y].posX[x].type = val;
 		};
 
-		this.toggleSound = function () {
 			this.soundfx === 0 ? this.soundfx = 1 : this.soundfx = 0;
 			$('#mute').toggle();
 		};
 
 		// TODO: test
-		this.reset = function () {
 			this.score.set(0);
 			this.score.refresh(".score");
-			pacman.lives = 3;
-			game.level = 1;
+			personnageCentral.lives = 3;
+			jeuPrincipal.level = 1;
 			this.refreshLevel(".level");
 
 			this.pause = false;
 			this.gameOver = false;
 		};
 
-		this.newGame = function () {
-			var r = confirm("Vous allez retouner au niveau 1, êtes-vous sur ?");
 			if (r) {
 				console.log("new Game");
 				this.init(0);
@@ -253,36 +430,30 @@ function geronimo() {
 			}
 		};
 
-		this.nextLevel = function () {
 			console.debug('nextLevel: current, final', this.level, FINAL_LEVEL);
 			if (this.level === FINAL_LEVEL) {
-				console.log('next level, ' + FINAL_LEVEL + ', end game');
-				game.endGame(true);
-				game.showHighscoreForm();
+				console.log('next level, ' + FINAL_LEVEL + ', end jeuPrincipal');
+				jeuPrincipal.endGame(true);
+				jeuPrincipal.showHighscoreForm();
 			} else {
 				this.level++;
-				console.log("Niveau " + game.level);
-				game.pauseAndShowMessage("Level " + game.level, this.getLevelTitle() + "<br/>(Cliquez pour continuer!)");
-				game.refreshLevel(".level");
+				console.log("Niveau " + jeuPrincipal.level);
+				jeuPrincipal.pauseAndShowMessage("Level " + jeuPrincipal.level, this.getLevelTitle() + "<br/>(Cliquez pour continuer!)");
+				jeuPrincipal.refreshLevel(".level");
 				this.init(1);
 			}
 		};
 
-		this.drawHearts = function (count) {
-			var html = "";
-			for (var i = 0; i < count; i++) {
 				html += " <img src='img/heart.png'>";
 			}
 			$(".lives").html("Vies: " + html);
 
 		};
 
-		this.showContent = function (id) {
 			$('.content').hide();
 			$('#' + id).show();
 		};
 
-		this.getLevelTitle = function () {
 			switch (this.level) {
 				case 2:
 					return '"Les fantômes vous poursuivent"';
@@ -291,7 +462,7 @@ function geronimo() {
 					return '"Inky arrive"';
 					// Inky bouge
 				case 4:
-					return '"Clyde arrive"';
+					return '"Clyde arriveg"';
 					// Clyde bouge
 				case 5:
 					return '"Fantômes rapides"';
@@ -301,40 +472,28 @@ function geronimo() {
 			}
 		}
 
-		this.showMessage = function (title, text) {
-			$('#canvas-overlay-container').fadeIn(200);
+			$('#toileDeJeu-overlay-container').fadeIn(200);
 			if ($('.controls').css('display') != "none") $('.controls').slideToggle(200);
-			$('#canvas-overlay-content #title').text(title);
-			$('#canvas-overlay-content #text').html(text);
+			$('#toileDeJeu-overlay-content #title').text(title);
+			$('#toileDeJeu-overlay-content #text').html(text);
 		}
 
-		this.pauseAndShowMessage = function (title, text) {
 			this.timer.stop();
 			this.pause = true;
 			this.showMessage(title, text);
 		};
 
-		this.closeMessage = function () {
-			$('#canvas-overlay-container').fadeOut(200);
+			$('#toileDeJeu-overlay-container').fadeOut(200);
 			$('.controls').slideToggle(200);
 		};
 
-		this.validateScoreWithLevel = function () {
-			const maxLevelPointsPills = 104 * PILL_POINTS;
-			const maxLevelPointsPowerpills = 4 * POWERPILL_POINTS;
-			const maxLevelPointsGhosts = 4 * 4 * GHOST_POINTS;
-			const maxLevelPoints = maxLevelPointsPills + maxLevelPointsPowerpills + maxLevelPointsGhosts;
 
-			const scoreIsValid = this.score.score / this.level <= maxLevelPoints;
 			console.log('validate score. score: ' + this.score.score + ', level: ' + this.level, scoreIsValid);
 			return scoreIsValid;
 
 		}
 
-		this.showHighscoreForm = function () {
-			var scoreIsValid = this.validateScoreWithLevel();
 
-			var inputHTML = scoreIsValid ? `<div id='highscore-form'>
 					<span id='form-validator'></span>
 					<input type='text' id='playerName'/>
 					<span class='button' id='score-submit'>save</span>
@@ -343,7 +502,6 @@ function geronimo() {
 			$('#playerName').focus();
 		}
 
-		this.forceStartAnimationLoop = function () {
 			// start timer
 			this.timer.start();
 
@@ -353,18 +511,15 @@ function geronimo() {
 			animationLoop();
 		}
 
-		this.forcePause = function () {
 			this.timer.stop();
 			this.pauseAndShowMessage("Pause", "Cliquez pour revenir au jeu");
 		}
 
-		this.forceResume = function () {
 			this.closeMessage();
 			this.pause = false;
 			this.timer.start();
 		}
 
-		this.pauseResume = function () {
 			if (this.gameOver) {
 				console.log('Cannot pause / resume. GameOver set to true.');
 				return;
@@ -382,14 +537,13 @@ function geronimo() {
 			console.log('load map config');
 			return new Promise((resolve, reject) => {
 				$.ajax({
-					url: mapConfig,
-					beforeSend: function (xhr) {
+					url: configCarte,
 						if (xhr.overrideMimeType) xhr.overrideMimeType("application/json");
 					},
 					dataType: "json",
 					success: (data) => {
 						console.log('map config loaded');
-						game.map = data;
+						jeuPrincipal.map = data;
 						resolve(data);
 					},
 					error: (response) => {
@@ -401,9 +555,6 @@ function geronimo() {
 		};
 
 		this.getPillCount = () => {
-			var temp = 0;
-			$.each(this.map.posY, function (i, item) {
-				$.each(this.posX, function () {
 					if (this.type == "pill") {
 						temp++;
 						//console.log("Pill Count++. temp="+temp+". PillCount="+this.pillCount+".");
@@ -415,17 +566,17 @@ function geronimo() {
 
 		this.init = async (state) => {
 
-			console.log("init game " + state);
+			console.log("init jeuPrincipal " + state);
 			this.map = await this.loadMapConfig();
 			this.pillCount = this.getPillCount();
 
 			if (state === 0) {
 				this.timer.reset();
-				game.reset();
+				jeuPrincipal.reset();
 			}
-			pacman.reset();
+			personnageCentral.reset();
 
-			game.drawHearts(pacman.lives);
+			jeuPrincipal.drawHearts(personnageCentral.lives);
 
 			this.ghostFrightened = false;
 			this.ghostFrightenedTimer = 240;
@@ -433,53 +584,48 @@ function geronimo() {
 			this.ghostModeTimer = 200; // decrements each animationLoop execution
 
 			// init fantomes à ne pas virer pitié
-			if (pinky === null || pinky === undefined) {
-				pinky = new Ghost(GHOSTS.PINKY, 7, 5, 'img/pinky.svg', 2, 2);
-				inky = new Ghost(GHOSTS.INKY, 8, 5, 'img/inky.svg', 13, 11);
-				blinky = new Ghost(GHOSTS.BLINKY, 9, 5, 'img/blinky.svg', 13, 0);
-				clyde = new Ghost(GHOSTS.CLYDE, 10, 5, 'img/clyde.svg', 2, 11);
+			if (fantomeRose === null || fantomeRose === undefined) {
+				fantomeRose = new Ghost(GHOSTS.PINKY, 7, 5, 'img/fantomeRose.svg', 2, 2);
+				fantomeBleu = new Ghost(GHOSTS.INKY, 8, 5, 'img/fantomeBleu.svg', 13, 11);
+				fantomeRouge = new Ghost(GHOSTS.BLINKY, 9, 5, 'img/fantomeRouge.svg', 13, 0);
+				fantomeOrange = new Ghost(GHOSTS.CLYDE, 10, 5, 'img/fantomeOrange.svg', 2, 11);
 			} else {
-				pinky.reset();
-				inky.reset();
-				blinky.reset();
-				clyde.reset();
+				fantomeRose.reset();
+				fantomeBleu.reset();
+				fantomeRouge.reset();
+				fantomeOrange.reset();
 			}
-			blinky.start();
-			inky.start();
-			pinky.start();
-			clyde.start();
+			fantomeRouge.start();
+			fantomeBleu.start();
+			fantomeRose.start();
+			fantomeOrange.start();
 		};
 
-		this.checkForLevelUp = function () {
-			if ((this.pillCount === 0) && game.started) {
+			if ((this.pillCount === 0) && jeuPrincipal.started) {
 				this.nextLevel();
 			}
 		};
 
-		this.endGame = function (allLevelsCompleted = false) {
 			console.log('Game Over by ' + (allLevelsCompleted ? 'WIN' : 'LOSS'));
 			this.pause = true;
 			this.gameOver = true;
 		}
 
-		this.toPixelPos = function (gridPos) {
 			return gridPos * 30;
 		};
 
-		this.toGridPos = function (pixelPos) {
 			return ((pixelPos % 30) / 30);
 		};
 
-		this.buildWalls = function () {
-			if (this.ghostMode === 0) game.wallColor = "Blue";
-			else game.wallColor = "Red";
-			canvas_walls = document.createElement('canvas');
-			canvas_walls.width = game.canvas.width;
-			canvas_walls.height = game.canvas.height;
+			if (this.ghostMode === 0) jeuPrincipal.wallColor = "Blue";
+			else jeuPrincipal.wallColor = "Red";
+			canvas_walls = document.createElement('toileDeJeu');
+			canvas_walls.width = jeuPrincipal.toileDeJeu.width;
+			canvas_walls.height = jeuPrincipal.toileDeJeu.height;
 			context_walls = canvas_walls.getContext("2d");
 
-			context_walls.fillStyle = game.wallColor;
-			context_walls.strokeStyle = game.wallColor;
+			context_walls.fillStyle = jeuPrincipal.wallColor;
+			context_walls.strokeStyle = jeuPrincipal.wallColor;
 
 			buildWall(context_walls, 0, 0, 18, 1);
 			buildWall(context_walls, 0, 12, 18, 1);
@@ -492,7 +638,7 @@ function geronimo() {
 			buildWall(context_walls, 10, 4, 1, 1);
 			buildWall(context_walls, 11, 5, 1, 2);
 			buildWall(context_walls, 6, 6, 6, 1);
-			context_walls.fillRect(8 * 2 * pacman.radius, pacman.radius / 2 + 4 * 2 * pacman.radius + 5, 4 * pacman.radius, 1);
+			context_walls.fillRect(8 * 2 * personnageCentral.radius, personnageCentral.radius / 2 + 4 * 2 * personnageCentral.radius + 5, 4 * personnageCentral.radius, 1);
 			buildWall(context_walls, 4, 0, 1, 2);
 			buildWall(context_walls, 13, 0, 1, 2);
 			buildWall(context_walls, 2, 2, 1, 2);
@@ -527,49 +673,35 @@ function geronimo() {
 		};
 	}
 
-	game = new Game();
+	jeuPrincipal = new Game();
 
-	function Score() {
 		this.score = 0;
-		this.set = function (i) {
 			this.score = i;
 		};
-		this.add = function (i) {
 			this.score += i;
 		};
-		this.refresh = function (h) {
 			$(h).html("Score: " + this.score);
 		};
 
 	}
 
-	function Direction(name, angle1, angle2, dirX, dirY) {
 		this.name = name;
 		this.angle1 = angle1;
 		this.angle2 = angle2;
 		this.dirX = dirX;
 		this.dirY = dirY;
-		this.equals = function (dir) {
 			return JSON.stringify(this) == JSON.stringify(dir);
 		};
 	}
 
-	var up = new Direction("up", 1.75, 1.25, 0, -1);
-	var left = new Direction("left", 1.25, 0.75, -1, 0);
-	var down = new Direction("down", 0.75, 0.25, 0, 1);
-	var right = new Direction("right", 0.25, 1.75, 1, 0);
 
-	function directionWatcher() {
 		this.dir = null;
-		this.set = function (dir) {
 			this.dir = dir;
 		};
-		this.get = function () {
 			return this.dir;
 		};
 	}
 
-	function Ghost(name, gridPosX, gridPosY, image, gridBaseX, gridBaseY) {
 		this.name = name;
 		this.posX = gridPosX * 30;
 		this.posY = gridPosY * 30;
@@ -577,7 +709,7 @@ function geronimo() {
 		this.startPosY = gridPosY * 30;
 		this.gridBaseX = gridBaseX;
 		this.gridBaseY = gridBaseY;
-		this.speed = game.ghostSpeedNormal;
+		this.speed = jeuPrincipal.ghostSpeedNormal;
 		this.images = JSON.parse(
 			'{"normal" : {' +
 			`"${GHOSTS.INKY}" : "0",` +
@@ -597,14 +729,12 @@ function geronimo() {
 		this.ghostHouse = true;
 		this.dazzled = false;
 		this.dead = false;
-		this.dazzle = function () {
-			this.changeSpeed(game.ghostSpeedDazzled);
+			this.changeSpeed(jeuPrincipal.ghostSpeedDazzled);
 			if (this.posX > 0) this.posX = this.posX - this.posX % this.speed;
 			if (this.posY > 0) this.posY = this.posY - this.posY % this.speed;
 			this.dazzled = true;
 		}
-		this.undazzle = function () {
-			if (!this.dead) this.changeSpeed(game.ghostSpeedNormal);
+			if (!this.dead) this.changeSpeed(jeuPrincipal.ghostSpeedNormal);
 			if (this.posX > 0) this.posX = this.posX - this.posX % this.speed;
 			if (this.posY > 0) this.posY = this.posY - this.posY % this.speed;
 			this.dazzled = false;
@@ -616,26 +746,22 @@ function geronimo() {
 		this.deadImg = new Image();
 		this.deadImg.src = 'img/dead.svg';
 		this.direction = right;
-		this.radius = pacman.radius;
-		this.draw = function (context) {
+		this.radius = personnageCentral.radius;
 			if (this.dead) {
-				context.drawImage(this.deadImg, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
+				contexteDessin.drawImage(this.deadImg, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
 			} else if (this.dazzled) {
-				if (pacman.beastModeTimer < 50 && pacman.beastModeTimer % 8 > 1) {
-					context.drawImage(this.dazzleImg2, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
+				if (personnageCentral.beastModeTimer < 50 && personnageCentral.beastModeTimer % 8 > 1) {
+					contexteDessin.drawImage(this.dazzleImg2, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
 				} else {
-					context.drawImage(this.dazzleImg, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
+					contexteDessin.drawImage(this.dazzleImg, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
 				}
-			} else context.drawImage(this.image, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
+			} else contexteDessin.drawImage(this.image, this.posX, this.posY, 2 * this.radius, 2 * this.radius);
 		}
-		this.getCenterX = function () {
 			return this.posX + this.radius;
 		}
-		this.getCenterY = function () {
 			return this.posY + this.radius;
 		}
 
-		this.reset = function () {
 			this.dead = false;
 			this.posX = this.startPosX;
 			this.posY = this.startPosY;
@@ -643,31 +769,28 @@ function geronimo() {
 			this.undazzle();
 		}
 
-		this.die = function () {
 			if (!this.dead) {
-				game.score.add(GHOST_POINTS);
+				jeuPrincipal.score.add(GHOST_POINTS);
 				this.dead = true;
-				this.changeSpeed(game.ghostSpeedNormal);
+				this.changeSpeed(jeuPrincipal.ghostSpeedNormal);
 			}
 		}
-		this.changeSpeed = function (s) {
 			this.posX = Math.round(this.posX / s) * s;
 			this.posY = Math.round(this.posY / s) * s;
 			this.speed = s;
 		}
 
-		this.move = function () {
 
 			this.checkDirectionChange();
 			this.checkCollision();
 
 			if (this.ghostHouse == true) {
 				if (this.name == GHOSTS.CLYDE) {
-					if ((game.level < 4) || ((game.pillCount > 104 / 3))) this.stop = true;
+					if ((jeuPrincipal.level < 4) || ((jeuPrincipal.pillCount > 104 / 3))) this.stop = true;
 					else this.stop = false;
 				}
 				if (this.name == GHOSTS.INKY) {
-					if ((game.level < 3) || ((game.pillCount > 104 - 30))) this.stop = true;
+					if ((jeuPrincipal.level < 3) || ((jeuPrincipal.pillCount > 104 - 30))) this.stop = true;
 					else this.stop = false;
 				}
 				if ((this.getGridPosY() == 5) && this.inGrid()) {
@@ -686,22 +809,21 @@ function geronimo() {
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
-				if (this.posX >= game.width - this.radius) this.posX = this.speed - this.radius;
-				if (this.posX <= 0 - this.radius) this.posX = game.width - this.speed - this.radius;
-				if (this.posY >= game.height - this.radius) this.posY = this.speed - this.radius;
-				if (this.posY <= 0 - this.radius) this.posY = game.height - this.speed - this.radius;
+				if (this.posX >= jeuPrincipal.width - this.radius) this.posX = this.speed - this.radius;
+				if (this.posX <= 0 - this.radius) this.posX = jeuPrincipal.width - this.speed - this.radius;
+				if (this.posY >= jeuPrincipal.height - this.radius) this.posY = this.speed - this.radius;
+				if (this.posY <= 0 - this.radius) this.posY = jeuPrincipal.height - this.speed - this.radius;
 			}
 		}
 
-		this.checkCollision = function () {
 
 			if (this.dead && (this.getGridPosX() == this.startPosX / 30) && (this.getGridPosY() == this.startPosY / 30)) this.reset();
 			else {
 
-				if ((between(pacman.getCenterX(), this.getCenterX() - 10, this.getCenterX() + 10)) &&
-					(between(pacman.getCenterY(), this.getCenterY() - 10, this.getCenterY() + 10))) {
+				if ((between(personnageCentral.getCenterX(), this.getCenterX() - 10, this.getCenterX() + 10)) &&
+					(between(personnageCentral.getCenterY(), this.getCenterY() - 10, this.getCenterY() + 10))) {
 					if ((!this.dazzled) && (!this.dead)) {
-						pacman.die();
+						personnageCentral.die();
 					} else {
 						this.die();
 					}
@@ -709,49 +831,27 @@ function geronimo() {
 			}
 		}
 
-		this.getNextDirection = function () {
-			var pX = this.getGridPosX();
-			var pY = this.getGridPosY();
-			game.getMapContent(pX, pY);
-			var u, d, r, l;
+			jeuPrincipal.getMapContent(pX, pY);
 
 			if (this.dead) {
-				var tX = this.startPosX / 30;
-				var tY = this.startPosY / 30;
-			} else if (game.ghostMode == 0) {
-				var tX = this.gridBaseX;
-				var tY = this.gridBaseY;
-			} else if (game.ghostMode == 1) {
+			} else if (jeuPrincipal.ghostMode == 0) {
+			} else if (jeuPrincipal.ghostMode == 1) {
 
 				switch (this.name) {
 
 					case GHOSTS.PINKY:
-						var pdir = pacman.direction;
-						var pdirX = pdir.dirX == 0 ? -pdir.dirY : pdir.dirX;
-						var pdirY = pdir.dirY == 0 ? -pdir.dirX : pdir.dirY;
 
-						var tX = (pacman.getGridPosX() + pdirX * 4) % (game.width / pacman.radius + 1);
-						var tY = (pacman.getGridPosY() + pdirY * 4) % (game.height / pacman.radius + 1);
 						break;
 
 					case GHOSTS.BLINKY:
-						var tX = pacman.getGridPosX();
-						var tY = pacman.getGridPosY();
 						break;
 
 					case GHOSTS.INKY:
-						var tX = pacman.getGridPosX() + 2 * pacman.direction.dirX;
-						var tY = pacman.getGridPosY() + 2 * pacman.direction.dirY;
-						var vX = tX - blinky.getGridPosX();
-						var vY = tY - blinky.getGridPosY();
-						tX = Math.abs(blinky.getGridPosX() + vX * 2);
-						tY = Math.abs(blinky.getGridPosY() + vY * 2);
+						tX = Math.abs(fantomeRouge.getGridPosX() + vX * 2);
+						tY = Math.abs(fantomeRouge.getGridPosY() + vY * 2);
 						break;
 
 					case GHOSTS.CLYDE:
-						var tX = pacman.getGridPosX();
-						var tY = pacman.getGridPosY();
-						var dist = Math.sqrt(Math.pow((pX - tX), 2) + Math.pow((pY - tY), 2));
 
 						if (dist < 5) {
 							tX = this.gridBaseX;
@@ -761,40 +861,32 @@ function geronimo() {
 
 				}
 			}
-			var oppDir = this.getOppositeDirection();
-			var dirs = [{}, {}, {}, {}];
-			dirs[0].field = game.getMapContent(pX, pY - 1);
+			dirs[0].field = jeuPrincipal.getMapContent(pX, pY - 1);
 			dirs[0].dir = up;
 			dirs[0].distance = Math.sqrt(Math.pow((pX - tX), 2) + Math.pow((pY - 1 - tY), 2));
-			dirs[1].field = game.getMapContent(pX, pY + 1);
+			dirs[1].field = jeuPrincipal.getMapContent(pX, pY + 1);
 			dirs[1].dir = down;
 			dirs[1].distance = Math.sqrt(Math.pow((pX - tX), 2) + Math.pow((pY + 1 - tY), 2));
-			dirs[2].field = game.getMapContent(pX + 1, pY);
+			dirs[2].field = jeuPrincipal.getMapContent(pX + 1, pY);
 			dirs[2].dir = right;
 			dirs[2].distance = Math.sqrt(Math.pow((pX + 1 - tX), 2) + Math.pow((pY - tY), 2));
-			dirs[3].field = game.getMapContent(pX - 1, pY);
+			dirs[3].field = jeuPrincipal.getMapContent(pX - 1, pY);
 			dirs[3].dir = left;
 			dirs[3].distance = Math.sqrt(Math.pow((pX - 1 - tX), 2) + Math.pow((pY - tY), 2));
 
-			function compare(a, b) {
 				if (a.distance < b.distance)
 					return -1;
 				if (a.distance > b.distance)
 					return 1;
 				return 0;
 			}
-			var dirs2 = dirs.sort(compare);
-			var r = this.dir;
-			var j;
 
 			if (this.dead) {
-				for (var i = dirs2.length - 1; i >= 0; i--) {
 					if ((dirs2[i].field != "wall") && !(dirs2[i].dir.equals(this.getOppositeDirection()))) {
 						r = dirs2[i].dir;
 					}
 				}
 			} else {
-				for (var i = dirs2.length - 1; i >= 0; i--) {
 					if ((dirs2[i].field != "wall") && (dirs2[i].field != "door") && !(dirs2[i].dir.equals(this.getOppositeDirection()))) {
 						r = dirs2[i].dir;
 					}
@@ -803,8 +895,6 @@ function geronimo() {
 			this.directionWatcher.set(r);
 			return r;
 		}
-		this.setRandomDirection = function () {
-			var dir = Math.floor((Math.random() * 10) + 1) % 5;
 
 			switch (dir) {
 				case 1:
@@ -825,16 +915,14 @@ function geronimo() {
 					break;
 			}
 		}
-		this.reverseDirection = function () {
 			console.log("reverseDirection: " + this.direction.name + " to " + this.getOppositeDirection().name);
 			this.directionWatcher.set(this.getOppositeDirection());
 		}
 
 	}
 
-	Ghost.prototype = new Figure();
+	Ghost.prototype = new EntiteJeu();
 
-	function Figure() {
 		this.posX;
 		this.posY;
 		this.speed;
@@ -843,10 +931,8 @@ function geronimo() {
 		this.direction;
 		this.stop = true;
 		this.directionWatcher = new directionWatcher();
-		this.getNextDirection = function () {
-			console.log("Figure getNextDirection");
+			console.log("EntiteJeu getNextDirection");
 		};
-		this.checkDirectionChange = function () {
 			if (this.inGrid() && (this.directionWatcher.get() == null)) this.getNextDirection();
 			if ((this.directionWatcher.get() != null) && this.inGrid()) {
 				this.setDirection(this.directionWatcher.get());
@@ -855,55 +941,45 @@ function geronimo() {
 
 		}
 
-		this.inGrid = function () {
 			if ((this.posX % (2 * this.radius) === 0) && (this.posY % (2 * this.radius) === 0)) return true;
 			return false;
 		}
-		this.getOppositeDirection = function () {
 			if (this.direction.equals(up)) return down;
 			else if (this.direction.equals(down)) return up;
 			else if (this.direction.equals(right)) return left;
 			else if (this.direction.equals(left)) return right;
 		}
-		this.move = function () {
 
 			if (!this.stop) {
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
-				if (this.posX >= game.width - this.radius) this.posX = this.speed - this.radius;
-				if (this.posX <= 0 - this.radius) this.posX = game.width - this.speed - this.radius;
-				if (this.posY >= game.height - this.radius) this.posY = this.speed - this.radius;
-				if (this.posY <= 0 - this.radius) this.posY = game.height - this.speed - this.radius;
+				if (this.posX >= jeuPrincipal.width - this.radius) this.posX = this.speed - this.radius;
+				if (this.posX <= 0 - this.radius) this.posX = jeuPrincipal.width - this.speed - this.radius;
+				if (this.posY >= jeuPrincipal.height - this.radius) this.posY = this.speed - this.radius;
+				if (this.posY <= 0 - this.radius) this.posY = jeuPrincipal.height - this.speed - this.radius;
 			}
 		}
-		this.stop = function () {
 			this.stop = true;
 		}
-		this.start = function () {
 			this.stop = false;
 		}
 
-		this.getGridPosX = function () {
 			return (this.posX - (this.posX % 30)) / 30;
 		}
-		this.getGridPosY = function () {
 			return (this.posY - (this.posY % 30)) / 30;
 		}
-		this.setDirection = function (dir) {
 			this.dirX = dir.dirX;
 			this.dirY = dir.dirY;
 			this.angle1 = dir.angle1;
 			this.angle2 = dir.angle2;
 			this.direction = dir;
 		}
-		this.setPosition = function (x, y) {
 			this.posX = x;
 			this.posY = y;
 		}
 	}
 
-	function pacman() {
 		this.radius = 15;
 		this.posX = 0;
 		this.posY = 6 * 2 * this.radius;
@@ -917,16 +993,12 @@ function geronimo() {
 		this.stuckX = 0;
 		this.stuckY = 0;
 		this.frozen = false;
-		this.freeze = function () {
 			this.frozen = true;
 		}
-		this.unfreeze = function () {
 			this.frozen = false;
 		}
-		this.getCenterX = function () {
 			return this.posX + this.radius;
 		}
-		this.getCenterY = function () {
 			return this.posY + this.radius;
 		}
 		this.directionWatcher = new directionWatcher();
@@ -936,46 +1008,38 @@ function geronimo() {
 		this.beastMode = false;
 		this.beastModeTimer = 0;
 
-		this.checkCollisions = function () {
 
 			if ((this.stuckX == 0) && (this.stuckY == 0) && this.frozen == false) {
 
-				var gridX = this.getGridPosX();
-				var gridY = this.getGridPosY();
-				var gridAheadX = gridX;
-				var gridAheadY = gridY;
-				var field = game.getMapContent(gridX, gridY);
 
 				if ((this.dirX == 1) && (gridAheadX < 17)) gridAheadX += 1;
 				if ((this.dirY == 1) && (gridAheadY < 12)) gridAheadY += 1;
-				var fieldAhead = game.getMapContent(gridAheadX, gridAheadY);
 
 				if ((field === "pill") || (field === "powerpill")) {
 					if (
-						((this.dirX == 1) && (between(this.posX, game.toPixelPos(gridX) + this.radius - this.speed, game.toPixelPos(gridX + 1)))) ||
-						((this.dirX == -1) && (between(this.posX, game.toPixelPos(gridX), game.toPixelPos(gridX) + this.speed))) ||
-						((this.dirY == 1) && (between(this.posY, game.toPixelPos(gridY) + this.radius - this.speed, game.toPixelPos(gridY + 1)))) ||
-						((this.dirY == -1) && (between(this.posY, game.toPixelPos(gridY), game.toPixelPos(gridY) + this.speed))) ||
+						((this.dirX == 1) && (between(this.posX, jeuPrincipal.toPixelPos(gridX) + this.radius - this.speed, jeuPrincipal.toPixelPos(gridX + 1)))) ||
+						((this.dirX == -1) && (between(this.posX, jeuPrincipal.toPixelPos(gridX), jeuPrincipal.toPixelPos(gridX) + this.speed))) ||
+						((this.dirY == 1) && (between(this.posY, jeuPrincipal.toPixelPos(gridY) + this.radius - this.speed, jeuPrincipal.toPixelPos(gridY + 1)))) ||
+						((this.dirY == -1) && (between(this.posY, jeuPrincipal.toPixelPos(gridY), jeuPrincipal.toPixelPos(gridY) + this.speed))) ||
 						(fieldAhead === "wall")
 					) {
-						var s;
 						if (field === "powerpill") {
 							s = POWERPILL_POINTS;
 							this.enableBeastMode();
-							game.startGhostFrightened();
+							jeuPrincipal.startGhostFrightened();
 						} else {
 							s = PILL_POINTS;
-							game.pillCount--;
+							jeuPrincipal.pillCount--;
 						}
-						game.map.posY[gridY].posX[gridX].type = "null";
-						game.score.add(s);
+						jeuPrincipal.map.posY[gridY].posX[gridX].type = "null";
+						jeuPrincipal.score.add(s);
 					}
 				}
 
 				if ((fieldAhead === "wall") || (fieldAhead === "door")) {
 					this.stuckX = this.dirX;
 					this.stuckY = this.dirY;
-					pacman.stop();
+					personnageCentral.stop();
 					if ((this.stuckX == 1) && ((this.posX % 2 * this.radius) != 0)) this.posX -= this.speed;
 					if ((this.stuckY == 1) && ((this.posY % 2 * this.radius) != 0)) this.posY -= this.speed;
 					if (this.stuckX == -1) this.posX += this.speed;
@@ -984,7 +1048,6 @@ function geronimo() {
 
 			}
 		}
-		this.checkDirectionChange = function () {
 			if (this.directionWatcher.get() != null) {
 				console.groupCollapsed('checkDirectionChange');
 
@@ -996,16 +1059,13 @@ function geronimo() {
 					if ((this.inGrid())) {
 						console.debug("x: " + this.getGridPosX() + " + " + this.directionWatcher.get().dirX);
 						console.debug("y: " + this.getGridPosY() + " + " + this.directionWatcher.get().dirY);
-						var x = this.getGridPosX() + this.directionWatcher.get().dirX;
-						var y = this.getGridPosY() + this.directionWatcher.get().dirY;
-						if (x <= -1) x = game.width / (this.radius * 2) - 1;
-						if (x >= game.width / (this.radius * 2)) x = 0;
-						if (y <= -1) x = game.height / (this.radius * 2) - 1;
-						if (y >= game.heigth / (this.radius * 2)) y = 0;
+						if (x <= -1) x = jeuPrincipal.width / (this.radius * 2) - 1;
+						if (x >= jeuPrincipal.width / (this.radius * 2)) x = 0;
+						if (y <= -1) x = jeuPrincipal.height / (this.radius * 2) - 1;
+						if (y >= jeuPrincipal.heigth / (this.radius * 2)) y = 0;
 
 						console.debug("x: " + x);
 						console.debug("y: " + y);
-						var nextTile = game.map.posY[y].posX[x].type;
 						console.debug("checkNextTile: " + nextTile);
 
 						if (nextTile != "wall") {
@@ -1017,7 +1077,6 @@ function geronimo() {
 				console.groupEnd();
 			}
 		}
-		this.setDirection = function (dir) {
 			if (!this.frozen) {
 				this.dirX = dir.dirX;
 				this.dirY = dir.dirY;
@@ -1027,25 +1086,22 @@ function geronimo() {
 			}
 		}
 
-		this.enableBeastMode = function () {
 			this.beastMode = true;
 			this.beastModeTimer = 240;
 			console.debug("boule mangée");
-			inky.dazzle();
-			pinky.dazzle();
-			blinky.dazzle();
-			clyde.dazzle();
+			fantomeBleu.dazzle();
+			fantomeRose.dazzle();
+			fantomeRouge.dazzle();
+			fantomeOrange.dazzle();
 		};
-		this.disableBeastMode = function () {
 			this.beastMode = false;
 			console.debug("fin mode boule mangée");
-			inky.undazzle();
-			pinky.undazzle();
-			blinky.undazzle();
-			clyde.undazzle();
+			fantomeBleu.undazzle();
+			fantomeRose.undazzle();
+			fantomeRouge.undazzle();
+			fantomeOrange.undazzle();
 		};
 
-		this.move = function () {
 
 			if (!this.frozen) {
 				if (this.beastModeTimer > 0) {
@@ -1057,15 +1113,14 @@ function geronimo() {
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
-				// Check if out of canvas
-				if (this.posX >= game.width - this.radius) this.posX = 5 - this.radius;
-				if (this.posX <= 0 - this.radius) this.posX = game.width - 5 - this.radius;
-				if (this.posY >= game.height - this.radius) this.posY = 5 - this.radius;
-				if (this.posY <= 0 - this.radius) this.posY = game.height - 5 - this.radius;
+				// Check if out of toileDeJeu
+				if (this.posX >= jeuPrincipal.width - this.radius) this.posX = 5 - this.radius;
+				if (this.posX <= 0 - this.radius) this.posX = jeuPrincipal.width - 5 - this.radius;
+				if (this.posY >= jeuPrincipal.height - this.radius) this.posY = 5 - this.radius;
+				if (this.posY <= 0 - this.radius) this.posY = jeuPrincipal.height - 5 - this.radius;
 			} else this.dieAnimation();
 		}
 
-		this.eat = function () {
 
 			if (!this.frozen) {
 				if (this.dirX == this.dirY == 0) {
@@ -1073,10 +1128,6 @@ function geronimo() {
 					this.angle1 -= this.mouth * 0.07;
 					this.angle2 += this.mouth * 0.07;
 
-					var limitMax1 = this.direction.angle1;
-					var limitMax2 = this.direction.angle2;
-					var limitMin1 = this.direction.angle1 - 0.21;
-					var limitMin2 = this.direction.angle2 + 0.21;
 
 					if (this.angle1 < limitMin1 || this.angle2 > limitMin2) {
 						this.mouth = -1;
@@ -1087,11 +1138,9 @@ function geronimo() {
 				}
 			}
 		}
-		this.stop = function () {
 			this.dirX = 0;
 			this.dirY = 0;
 		}
-		this.reset = function () {
 			this.unfreeze();
 			this.posX = 0;
 			this.posY = 6 * 2 * this.radius;
@@ -1099,48 +1148,40 @@ function geronimo() {
 			this.stop();
 			this.stuckX = 0;
 			this.stuckY = 0;
-			//console.log("reset pacman");
+			//console.log("reset personnageCentral");
 		}
-		this.dieAnimation = function () {
 			this.angle1 += 0.05;
 			this.angle2 -= 0.05;
 			if (this.angle1 >= this.direction.angle1 + 0.7 || this.angle2 <= this.direction.angle2 - 0.7) {
 				this.dieFinal();
 			}
 		}
-		this.die = function () {
 			this.freeze();
 			this.dieAnimation();
 		}
-		this.dieFinal = function () {
 			this.reset();
-			pinky.reset();
-			inky.reset();
-			blinky.reset();
-			clyde.reset();
+			fantomeRose.reset();
+			fantomeBleu.reset();
+			fantomeRouge.reset();
+			fantomeOrange.reset();
 			this.lives--;
-			console.log("pacman died, " + this.lives + " lives left");
+			console.log("personnageCentral died, " + this.lives + " lives left");
 			if (this.lives <= 0) {
-				game.endGame();
-				game.showHighscoreForm();
+				jeuPrincipal.endGame();
+				jeuPrincipal.showHighscoreForm();
 			}
-			game.drawHearts(this.lives);
+			jeuPrincipal.drawHearts(this.lives);
 		}
-		this.getGridPosX = function () {
 			return (this.posX - (this.posX % 30)) / 30;
 		}
-		this.getGridPosY = function () {
 			return (this.posY - (this.posY % 30)) / 30;
 		}
 	}
-	pacman.prototype = new Figure();
-	var pacman = new pacman();
-	game.buildWalls();
+	personnageCentral.prototype = new EntiteJeu();
+	jeuPrincipal.buildWalls();
 
 
-	function checkAppCache() {
 		console.log('check AppCache');
-		window.applicationCache.addEventListener('updateready', function (e) {
 			console.log("AppCache: updateready");
 			if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
 
@@ -1152,19 +1193,16 @@ function geronimo() {
 			}
 		}, false);
 
-		window.applicationCache.addEventListener('cached', function (e) {
 			console.log("AppCache: cached");
 		}, false);
 
 	}
 
-	function hideAdressbar() {
 		console.log("hide adressbar");
 		$("html").scrollTop(1);
 		$("body").scrollTop(1);
 	}
 
-	$(document).ready(function () {
 
 		if (!['localhost', '127.0.0.1'].includes(window.location.hostname)) {
 			logger.disableLogger();
@@ -1175,7 +1213,6 @@ function geronimo() {
 		});
 
 		$.ajaxSetup({
-			beforeSend: function (xhr) {
 				if (xhr.overrideMimeType) {
 					xhr.overrideMimeType("application/json");
 				}
@@ -1188,11 +1225,9 @@ function geronimo() {
 
 		window.addEventListener('keydown', doKeyDown, true);
 
-		$('#canvas-container').click(function () {
-			if (!(game.gameOver === true)) game.pauseResume();
+			if (!(jeuPrincipal.gameOver === true)) jeuPrincipal.pauseResume();
 		});
 
-		$('body').on('click', '#score-submit', function () {
 			console.log("submit highscore pressed");
 			if ($('#playerName').val() === "" || $('#playerName').val() === undefined) {
 				$('#form-validator').html("Please enter a name<br/>");
@@ -1202,105 +1237,87 @@ function geronimo() {
 			}
 		});
 
-		$('body').on('click', '#show-highscore', function () {
-			game.showContent('highscore-content');
+			jeuPrincipal.showContent('highscore-content');
 			getHighscore();
 		});
 
-		Hammer('.container').on("swiperight", function (event) {
-			if ($('#game-content').is(":visible")) {
+			if ($('#jeuPrincipal-content').is(":visible")) {
 				event.gesture.preventDefault();
-				pacman.directionWatcher.set(right);
+				personnageCentral.directionWatcher.set(right);
 			}
 		});
-		Hammer('.container').on("swipeleft", function (event) {
-			if ($('#game-content').is(":visible")) {
+			if ($('#jeuPrincipal-content').is(":visible")) {
 				event.gesture.preventDefault();
-				pacman.directionWatcher.set(left);
+				personnageCentral.directionWatcher.set(left);
 			}
 		});
-		Hammer('.container').on("swipeup", function (event) {
-			if ($('#game-content').is(":visible")) {
+			if ($('#jeuPrincipal-content').is(":visible")) {
 				event.gesture.preventDefault();
-				pacman.directionWatcher.set(up);
+				personnageCentral.directionWatcher.set(up);
 			}
 		});
-		Hammer('.container').on("swipedown", function (event) {
-			if ($('#game-content').is(":visible")) {
+			if ($('#jeuPrincipal-content').is(":visible")) {
 				event.gesture.preventDefault();
-				pacman.directionWatcher.set(down);
+				personnageCentral.directionWatcher.set(down);
 			}
 		});
 
-		$(document).on('touchend mousedown', '#up', function (event) {
 			event.preventDefault();
-			pacman.directionWatcher.set(up);
+			personnageCentral.directionWatcher.set(up);
 		});
-		$(document).on('touchend mousedown', '#down', function (event) {
 			event.preventDefault();
-			pacman.directionWatcher.set(down);
+			personnageCentral.directionWatcher.set(down);
 		});
-		$(document).on('touchend mousedown', '#left', function (event) {
 			event.preventDefault();
-			pacman.directionWatcher.set(left);
+			personnageCentral.directionWatcher.set(left);
 		});
-		$(document).on('touchend mousedown', '#right', function (event) {
 			event.preventDefault();
-			pacman.directionWatcher.set(right);
+			personnageCentral.directionWatcher.set(right);
 		});
 
-		$(document).on('click', '.button#newGame', function (event) {
-			game.newGame();
+			jeuPrincipal.newGame();
 		});
-		$(document).on('click', '.button#highscore', function (event) {
-			game.showContent('highscore-content');
+			jeuPrincipal.showContent('highscore-content');
 			getHighscore();
 		});
-		$(document).on('click', '.button#instructions', function (event) {
-			game.showContent('instructions-content');
+			jeuPrincipal.showContent('instructions-content');
 		});
-		$(document).on('click', '.button#info', function (event) {
-			game.showContent('info-content');
+			jeuPrincipal.showContent('info-content');
 		});
-		$(document).on('click', '.button#back', function (event) {
-			game.showContent('game-content');
+			jeuPrincipal.showContent('jeuPrincipal-content');
 		});
-		$(document).on('click', '.controlSound', function (event) {
-			game.toggleSound();
+			jeuPrincipal.toggleSound();
 		});
-		$(document).on('click', '#updateCode', function (event) {
 			console.log('check for new version');
 			event.preventDefault();
 			window.applicationCache.update();
 		});
 
 
-		canvas = $("#myCanvas").get(0);
-		context = canvas.getContext("2d");
+		toileDeJeu = $("#myCanvas").get(0);
+		contexteDessin = toileDeJeu.getContext("2d");
 
-		game.init(0);
+		jeuPrincipal.init(0);
 
 		renderContent();
 	});
 
-	function renderContent() {
-		game.score.refresh(".score");
+		jeuPrincipal.score.refresh(".score");
 
-		context.beginPath();
-		context.fillStyle = "White";
-		context.strokeStyle = "White";
+		contexteDessin.beginPath();
+		contexteDessin.fillStyle = "White";
+		contexteDessin.strokeStyle = "White";
 
-		var dotPosY;
-		if (game.map && game.map.posY && game.map.posY.length > 0) {
-			$.each(game.map.posY, (i, row) => {
+		if (jeuPrincipal.map && jeuPrincipal.map.posY && jeuPrincipal.map.posY.length > 0) {
+			$.each(jeuPrincipal.map.posY, (i, row) => {
 				dotPosY = row.row;
 				$.each(row.posX, (j, column) => {
 					if (column.type == "pill") {
-						context.arc(game.toPixelPos(column.col - 1) + pacman.radius, game.toPixelPos(dotPosY - 1) + pacman.radius, game.pillSize, 0 * Math.PI, 2 * Math.PI);
-						context.moveTo(game.toPixelPos(column.col - 1), game.toPixelPos(dotPosY - 1));
+						contexteDessin.arc(jeuPrincipal.toPixelPos(column.col - 1) + personnageCentral.radius, jeuPrincipal.toPixelPos(dotPosY - 1) + personnageCentral.radius, jeuPrincipal.pillSize, 0 * Math.PI, 2 * Math.PI);
+						contexteDessin.moveTo(jeuPrincipal.toPixelPos(column.col - 1), jeuPrincipal.toPixelPos(dotPosY - 1));
 					} else if (column.type == "powerpill") {
-						context.arc(game.toPixelPos(column.col - 1) + pacman.radius, game.toPixelPos(dotPosY - 1) + pacman.radius, game.powerpillSizeCurrent, 0 * Math.PI, 2 * Math.PI);
-						context.moveTo(game.toPixelPos(column.col - 1), game.toPixelPos(dotPosY - 1));
+						contexteDessin.arc(jeuPrincipal.toPixelPos(column.col - 1) + personnageCentral.radius, jeuPrincipal.toPixelPos(dotPosY - 1) + personnageCentral.radius, jeuPrincipal.powerpillSizeCurrent, 0 * Math.PI, 2 * Math.PI);
+						contexteDessin.moveTo(jeuPrincipal.toPixelPos(column.col - 1), jeuPrincipal.toPixelPos(dotPosY - 1));
 					}
 				});
 			});
@@ -1308,91 +1325,90 @@ function geronimo() {
 			console.warn('Map not loaded (yet).')
 		}
 
-		context.fill();
-		context.drawImage(canvas_walls, 0, 0);
+		contexteDessin.fill();
+		contexteDessin.drawImage(canvas_walls, 0, 0);
 
 
-		if (game.started) {
-			pinky.draw(context);
-			blinky.draw(context);
-			inky.draw(context);
-			clyde.draw(context);
+		if (jeuPrincipal.started) {
+			fantomeRose.draw(contexteDessin);
+			fantomeRouge.draw(contexteDessin);
+			fantomeBleu.draw(contexteDessin);
+			fantomeOrange.draw(contexteDessin);
 
-			context.beginPath();
-			context.fillStyle = "Yellow";
-			context.strokeStyle = "Yellow";
-			context.arc(pacman.posX + pacman.radius, pacman.posY + pacman.radius, pacman.radius, pacman.angle1 * Math.PI, pacman.angle2 * Math.PI);
-			context.lineTo(pacman.posX + pacman.radius, pacman.posY + pacman.radius);
-			context.stroke();
-			context.fill();
+			contexteDessin.beginPath();
+			contexteDessin.fillStyle = "Yellow";
+			contexteDessin.strokeStyle = "Yellow";
+			contexteDessin.arc(personnageCentral.posX + personnageCentral.radius, personnageCentral.posY + personnageCentral.radius, personnageCentral.radius, personnageCentral.angle1 * Math.PI, personnageCentral.angle2 * Math.PI);
+			contexteDessin.lineTo(personnageCentral.posX + personnageCentral.radius, personnageCentral.posY + personnageCentral.radius);
+			contexteDessin.stroke();
+			contexteDessin.fill();
 		}
 
 	}
 
-	function animationLoop() {
-		canvas.width = canvas.width;
+		toileDeJeu.width = toileDeJeu.width;
 		renderContent();
 
-		if (game.dieAnimation == 1) pacman.dieAnimation();
-		if (game.pause !== true) {
-			pacman.move();
-			pacman.eat();
-			pacman.checkDirectionChange();
-			pacman.checkCollisions();
+		if (jeuPrincipal.dieAnimation == 1) personnageCentral.dieAnimation();
+		if (jeuPrincipal.pause !== true) {
+			personnageCentral.move();
+			personnageCentral.eat();
+			personnageCentral.checkDirectionChange();
+			personnageCentral.checkCollisions();
 
-			blinky.move();
-			inky.move();
-			pinky.move();
-			clyde.move();
+			fantomeRouge.move();
+			fantomeBleu.move();
+			fantomeRose.move();
+			fantomeOrange.move();
 
-			game.checkGhostMode();
-			game.checkForLevelUp();
+			jeuPrincipal.checkGhostMode();
+			jeuPrincipal.checkForLevelUp();
 		}
-		setTimeout(animationLoop, game.refreshRate);
+		setTimeout(animationLoop, jeuPrincipal.refreshRate);
 	}
 
 
 
-	function doKeyDown(evt) {
 
 		switch (evt.keyCode) {
 			case 38: // haut
 				evt.preventDefault();
 			case 87: // w
-				pacman.directionWatcher.set(up);
+				personnageCentral.directionWatcher.set(up);
 				break;
 			case 40: // bas
 				evt.preventDefault();
 			case 83: // s
-				pacman.directionWatcher.set(down);
+				personnageCentral.directionWatcher.set(down);
 				break;
 			case 37: // gauche
 				evt.preventDefault();
 			case 65: // a
-				pacman.directionWatcher.set(left);
+				personnageCentral.directionWatcher.set(left);
 				break;
 			case 39: // droite
 				evt.preventDefault();
 			case 68: // d
-				pacman.directionWatcher.set(right);
+				personnageCentral.directionWatcher.set(right);
 				break;
 			case 78: // n
 				if (!$('#playerName').is(':focus')) {
-					game.pause = 1;
-					game.newGame();
+					jeuPrincipal.pause = 1;
+					jeuPrincipal.newGame();
 				}
 				break;
 			case 77: // m
-				game.toggleSound();
+				jeuPrincipal.toggleSound();
 				break;
 			case 32: // espace
 				evt.preventDefault();
-				if (!(game.gameOver == true) &&
-					$('#game-content').is(':visible')
-				) game.pauseResume();
+				if (!(jeuPrincipal.gameOver == true) &&
+					$('#jeuPrincipal-content').is(':visible')
+				) jeuPrincipal.pauseResume();
 				break;
 		}
 	}
 }
 
 geronimo();
+
