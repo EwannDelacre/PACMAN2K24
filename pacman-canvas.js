@@ -526,6 +526,7 @@ function geronimo() {
 			buildWall(context_walls, 12, 11, 2, 2);
 		};
 	}
+
 	game = new Game();
 
 	function Score() {
@@ -539,6 +540,7 @@ function geronimo() {
 		this.refresh = function (h) {
 			$(h).html("Score: " + this.score);
 		};
+
 	}
 
 	function Direction(name, angle1, angle2, dirX, dirY) {
@@ -552,7 +554,6 @@ function geronimo() {
 		};
 	}
 
-	// Direction Objects
 	var up = new Direction("up", 1.75, 1.25, 0, -1);
 	var left = new Direction("left", 1.25, 0.75, -1, 0);
 	var down = new Direction("down", 0.75, 0.25, 0, 1);
@@ -645,7 +646,6 @@ function geronimo() {
 		this.die = function () {
 			if (!this.dead) {
 				game.score.add(GHOST_POINTS);
-				//this.reset();
 				this.dead = true;
 				this.changeSpeed(game.ghostSpeedNormal);
 			}
@@ -662,7 +662,6 @@ function geronimo() {
 			this.checkCollision();
 
 			if (this.ghostHouse == true) {
-
 				if (this.name == GHOSTS.CLYDE) {
 					if ((game.level < 4) || ((game.pillCount > 104 / 3))) this.stop = true;
 					else this.stop = false;
@@ -671,7 +670,6 @@ function geronimo() {
 					if ((game.level < 3) || ((game.pillCount > 104 - 30))) this.stop = true;
 					else this.stop = false;
 				}
-
 				if ((this.getGridPosY() == 5) && this.inGrid()) {
 					if ((this.getGridPosX() == 7)) this.setDirection(right);
 					if ((this.getGridPosX() == 8) || this.getGridPosX() == 9) this.setDirection(up);
@@ -684,6 +682,7 @@ function geronimo() {
 			}
 
 			if (!this.stop) {
+				// Move
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
@@ -714,20 +713,18 @@ function geronimo() {
 			var pX = this.getGridPosX();
 			var pY = this.getGridPosY();
 			game.getMapContent(pX, pY);
-			var u, d, r, l; // option up, down, right, left
+			var u, d, r, l;
 
-			// get target
-			if (this.dead) { // go Home
+			if (this.dead) {
 				var tX = this.startPosX / 30;
 				var tY = this.startPosY / 30;
-			} else if (game.ghostMode == 0) { // Scatter Mode
+			} else if (game.ghostMode == 0) {
 				var tX = this.gridBaseX;
 				var tY = this.gridBaseY;
-			} else if (game.ghostMode == 1) { // Chase Mode
+			} else if (game.ghostMode == 1) {
 
 				switch (this.name) {
 
-					// target: 4 ahead and 4 left of pacman
 					case GHOSTS.PINKY:
 						var pdir = pacman.direction;
 						var pdirX = pdir.dirX == 0 ? -pdir.dirY : pdir.dirX;
@@ -737,13 +734,11 @@ function geronimo() {
 						var tY = (pacman.getGridPosY() + pdirY * 4) % (game.height / pacman.radius + 1);
 						break;
 
-						// target: pacman
 					case GHOSTS.BLINKY:
 						var tX = pacman.getGridPosX();
 						var tY = pacman.getGridPosY();
 						break;
 
-						// target:
 					case GHOSTS.INKY:
 						var tX = pacman.getGridPosX() + 2 * pacman.direction.dirX;
 						var tY = pacman.getGridPosY() + 2 * pacman.direction.dirY;
@@ -753,7 +748,6 @@ function geronimo() {
 						tY = Math.abs(blinky.getGridPosY() + vY * 2);
 						break;
 
-						// target: pacman, until pacman is closer than 5 grid fields, then back to scatter
 					case GHOSTS.CLYDE:
 						var tX = pacman.getGridPosX();
 						var tY = pacman.getGridPosY();
@@ -767,26 +761,21 @@ function geronimo() {
 
 				}
 			}
-			var oppDir = this.getOppositeDirection(); // ghosts are not allowed to change direction 180�
-
+			var oppDir = this.getOppositeDirection();
 			var dirs = [{}, {}, {}, {}];
 			dirs[0].field = game.getMapContent(pX, pY - 1);
 			dirs[0].dir = up;
 			dirs[0].distance = Math.sqrt(Math.pow((pX - tX), 2) + Math.pow((pY - 1 - tY), 2));
-
 			dirs[1].field = game.getMapContent(pX, pY + 1);
 			dirs[1].dir = down;
 			dirs[1].distance = Math.sqrt(Math.pow((pX - tX), 2) + Math.pow((pY + 1 - tY), 2));
-
 			dirs[2].field = game.getMapContent(pX + 1, pY);
 			dirs[2].dir = right;
 			dirs[2].distance = Math.sqrt(Math.pow((pX + 1 - tX), 2) + Math.pow((pY - tY), 2));
-
 			dirs[3].field = game.getMapContent(pX - 1, pY);
 			dirs[3].dir = left;
 			dirs[3].distance = Math.sqrt(Math.pow((pX - 1 - tX), 2) + Math.pow((pY - tY), 2));
 
-			// Sort possible directions by distance
 			function compare(a, b) {
 				if (a.distance < b.distance)
 					return -1;
@@ -795,7 +784,6 @@ function geronimo() {
 				return 0;
 			}
 			var dirs2 = dirs.sort(compare);
-
 			var r = this.dir;
 			var j;
 
@@ -846,7 +834,6 @@ function geronimo() {
 
 	Ghost.prototype = new Figure();
 
-	// Super Class for Pacman & Ghosts
 	function Figure() {
 		this.posX;
 		this.posY;
@@ -862,13 +849,11 @@ function geronimo() {
 		this.checkDirectionChange = function () {
 			if (this.inGrid() && (this.directionWatcher.get() == null)) this.getNextDirection();
 			if ((this.directionWatcher.get() != null) && this.inGrid()) {
-				//console.log("changeDirection to "+this.directionWatcher.get().name);
 				this.setDirection(this.directionWatcher.get());
 				this.directionWatcher.set(null);
 			}
 
 		}
-
 
 		this.inGrid = function () {
 			if ((this.posX % (2 * this.radius) === 0) && (this.posY % (2 * this.radius) === 0)) return true;
@@ -886,7 +871,6 @@ function geronimo() {
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
-				// Check if out of canvas
 				if (this.posX >= game.width - this.radius) this.posX = this.speed - this.radius;
 				if (this.posX <= 0 - this.radius) this.posX = game.width - this.speed - this.radius;
 				if (this.posY >= game.height - this.radius) this.posY = this.speed - this.radius;
@@ -926,13 +910,13 @@ function geronimo() {
 		this.speed = 5;
 		this.angle1 = 0.25;
 		this.angle2 = 1.75;
-		this.mouth = 1; /* Switches between 1 and -1, depending on mouth closing / opening */
+		this.mouth = 1;
 		this.dirX = right.dirX;
 		this.dirY = right.dirY;
 		this.lives = 3;
 		this.stuckX = 0;
 		this.stuckY = 0;
-		this.frozen = false; // used to play die Animation
+		this.frozen = false;
 		this.freeze = function () {
 			this.frozen = true;
 		}
@@ -956,23 +940,17 @@ function geronimo() {
 
 			if ((this.stuckX == 0) && (this.stuckY == 0) && this.frozen == false) {
 
-				// Get the Grid Position of Pac
 				var gridX = this.getGridPosX();
 				var gridY = this.getGridPosY();
 				var gridAheadX = gridX;
 				var gridAheadY = gridY;
-
 				var field = game.getMapContent(gridX, gridY);
 
-				// get the field 1 ahead to check wall collisions
 				if ((this.dirX == 1) && (gridAheadX < 17)) gridAheadX += 1;
 				if ((this.dirY == 1) && (gridAheadY < 12)) gridAheadY += 1;
 				var fieldAhead = game.getMapContent(gridAheadX, gridAheadY);
 
-
-				/*	Check Pill Collision			*/
 				if ((field === "pill") || (field === "powerpill")) {
-					//console.log("Pill found at ("+gridX+"/"+gridY+"). Pacman at ("+this.posX+"/"+this.posY+")");
 					if (
 						((this.dirX == 1) && (between(this.posX, game.toPixelPos(gridX) + this.radius - this.speed, game.toPixelPos(gridX + 1)))) ||
 						((this.dirX == -1) && (between(this.posX, game.toPixelPos(gridX), game.toPixelPos(gridX) + this.speed))) ||
@@ -994,12 +972,10 @@ function geronimo() {
 					}
 				}
 
-				/*	Check Wall Collision			*/
 				if ((fieldAhead === "wall") || (fieldAhead === "door")) {
 					this.stuckX = this.dirX;
 					this.stuckY = this.dirY;
 					pacman.stop();
-					// get out of the wall
 					if ((this.stuckX == 1) && ((this.posX % 2 * this.radius) != 0)) this.posX -= this.speed;
 					if ((this.stuckY == 1) && ((this.posY % 2 * this.radius) != 0)) this.posY -= this.speed;
 					if (this.stuckX == -1) this.posX += this.speed;
@@ -1011,20 +987,13 @@ function geronimo() {
 		this.checkDirectionChange = function () {
 			if (this.directionWatcher.get() != null) {
 				console.groupCollapsed('checkDirectionChange');
-				//console.log("next Direction: "+directionWatcher.get().name);
 
 				if ((this.stuckX == 1) && this.directionWatcher.get() == right) this.directionWatcher.set(null);
 				else {
-					// reset stuck events
 					this.stuckX = 0;
 					this.stuckY = 0;
 
-
-					// only allow direction changes inside the grid
 					if ((this.inGrid())) {
-						//console.log("changeDirection to "+directionWatcher.get().name);
-
-						// check if possible to change direction without getting stuck
 						console.debug("x: " + this.getGridPosX() + " + " + this.directionWatcher.get().dirX);
 						console.debug("y: " + this.getGridPosY() + " + " + this.directionWatcher.get().dirY);
 						var x = this.getGridPosX() + this.directionWatcher.get().dirX;
@@ -1138,7 +1107,6 @@ function geronimo() {
 			}
 		}
 		this.die = function () {
-			Sound.play("die");
 			this.freeze();
 			this.dieAnimation();
 		}
