@@ -232,7 +232,7 @@ function geronimo() {
 			$('#mute').toggle();
 		};
 
-		// TODO: test
+		// TODO
 		this.reset = function () {
 			this.score.set(0);
 			this.score.refresh(".score");
@@ -344,7 +344,6 @@ function geronimo() {
 		}
 
 		this.forceStartAnimationLoop = function () {
-			// start timer
 			this.timer.start();
 
 			this.pause = false;
@@ -406,7 +405,6 @@ function geronimo() {
 				$.each(this.posX, function () {
 					if (this.type == "pill") {
 						temp++;
-						//console.log("Pill Count++. temp="+temp+". PillCount="+this.pillCount+".");
 					}
 				});
 			});
@@ -429,8 +427,8 @@ function geronimo() {
 
 			this.ghostFrightened = false;
 			this.ghostFrightenedTimer = 240;
-			this.ghostMode = 0; // 0 = Scatter, 1 = Chase
-			this.ghostModeTimer = 200; // decrements each animationLoop execution
+			this.ghostMode = 0; // 0 = immobile, 1 = chasse
+			this.ghostModeTimer = 200; 
 
 			// init fantomes à ne pas virer pitié
 			if (pinky === null || pinky === undefined) {
@@ -682,7 +680,6 @@ function geronimo() {
 			}
 
 			if (!this.stop) {
-				// Move
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
@@ -1050,14 +1047,12 @@ function geronimo() {
 			if (!this.frozen) {
 				if (this.beastModeTimer > 0) {
 					this.beastModeTimer--;
-					//console.log("Beast Mode: "+this.beastModeTimer);
 				}
 				if ((this.beastModeTimer == 0) && (this.beastMode == true)) this.disableBeastMode();
 
 				this.posX += this.speed * this.dirX;
 				this.posY += this.speed * this.dirY;
 
-				// Check if out of canvas
 				if (this.posX >= game.width - this.radius) this.posX = 5 - this.radius;
 				if (this.posX <= 0 - this.radius) this.posX = game.width - 5 - this.radius;
 				if (this.posY >= game.height - this.radius) this.posY = 5 - this.radius;
@@ -1099,7 +1094,6 @@ function geronimo() {
 			this.stop();
 			this.stuckX = 0;
 			this.stuckY = 0;
-			//console.log("reset pacman");
 		}
 		this.dieAnimation = function () {
 			this.angle1 += 0.05;
